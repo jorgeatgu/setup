@@ -1,0 +1,28 @@
+[
+	{ "keys": ["command+v"], "command": "paste_and_indent" },
+	{ "keys": ["command+shift+v"], "command": "paste" },
+	{ "keys": ["super+shift+a"], "command": "open_in_browser" },
+	{ "keys": ["super+0"], "command": "reset_font_size_to_user_defaults" },
+	{ "keys": ["super+u"], "command": "soft_undo" },
+	{ "keys": ["super+f12"], "command": "reindent"},
+	{ "keys": ["super+shift+o"], "command": "prompt_add_folder" },
+	{ "keys": ["alt+super+p"], "command": "autoprefixer" },
+	{ "keys": ["super+shift+e"], "command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} },
+	{ "keys": ["super+shift+u"], "command": "js_format", "context": [{"key": "selector", "operator": "equal", "operand": "source.javascript"}] },
+	{"keys": [ "alt+up" ], "args": { "action": "increment_number_by_1" }, "command": "run_emmet_action", "context":
+	[
+	{ "key": "emmet_action_enabled.increment_number_by_1" },
+	{ "key": "following_text", "operator": "regex_contains", "operand": "^-?\\d", "match_all": true }
+	]
+	},
+	{
+	"keys": ["alt+down"], "args": {"action": "decrement_number_by_1"}, "command": "run_emmet_action", "context":
+	[
+	{ "key": "emmet_action_enabled.decrement_number_by_1" },
+	{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\d$", "match_all": true }
+	]
+	}
+]
+
+
+
