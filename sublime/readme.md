@@ -1,0 +1,34 @@
+##Packages
+
+- Alignment
+- AlignTab
+- All Autocomplete
+- ApllySyntax
+- Better Completion
+- BracketGuard
+- BracketHighlighter
+- Color BracketHighlighter
+- CSS Format
+- eCSStractor
+- Emmet
+- Emmet CSS Snippets
+- FileDiffs
+- HTML Boilerplate
+- HTML-CSS-JS Prettify
+- IndentTips
+- JavaScript Completions
+- JavaScript Snippets
+- JsFormat
+- Local History
+- Markdown Preview
+- Material Theme
+- Modific
+- PlainTasks
+- SCSS
+- SCSS Snippets
+- SideBarEnhancements
+- SublimeLinter
+- SVG Snippets
+- Syntax Highlightinf for postCSS
+- Terminal
+- Wakatime
