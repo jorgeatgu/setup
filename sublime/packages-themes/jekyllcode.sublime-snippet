@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+{% highlight HTML %}
+
+{% endhighlight %}
+]]></content>
+	<description>Jekyll code</description>
+	<tabTrigger>jekyllcode</tabTrigger>
+	<scope>text.html.markdown</scope>
+</snippet>
+
+

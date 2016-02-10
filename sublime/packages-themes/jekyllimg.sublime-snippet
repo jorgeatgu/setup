@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+  ![]()
+]]></content>
+	<description>Jekyll img</description>
+	<tabTrigger>jekyllimg</tabTrigger>
+	<scope>text.html.markdown</scope>
+</snippet>
+
+

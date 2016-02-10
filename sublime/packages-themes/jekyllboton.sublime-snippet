@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+<div class="boton-centrar">
+  <a target="_blank" class="boton-shortcode" href=""></a>
+</div>
+]]></content>
+	<description>Jekyll code</description>
+	<tabTrigger>jekyllboton</tabTrigger>
+	<scope>text.html.markdown</scope>
+</snippet>
+
+

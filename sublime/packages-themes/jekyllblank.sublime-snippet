@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+[](){:target="_blank"}
+]]></content>
+	<description>Jekyll Blank</description>
+	<tabTrigger>jekyllblank</tabTrigger>
+	<scope>text.html.markdown</scope>
+</snippet>
+
+

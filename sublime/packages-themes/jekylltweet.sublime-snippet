@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+{% tweet  %}
+]]></content>
+	<description>Jekyll Tweet</description>
+	<tabTrigger>jekylltweet</tabTrigger>
+	<scope>text.html.markdown</scope>
+</snippet>
+
+

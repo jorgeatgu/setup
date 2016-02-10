@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+{% codepen DLjey jorgeatgu [result] [400] %}
+]]></content>
+	<description>Jekyll CodePen</description>
+	<tabTrigger>jekyllcodepen</tabTrigger>
+	<scope>text.html.markdown</scope>
+</snippet>
+
+
