@@ -1,0 +1,2 @@
+# setup
+Programas · configuraciones
