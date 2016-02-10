@@ -1,4 +1,4 @@
-# 💻 Aplicaciones & configuraciones que uso
+💻
 
 ## Aplicaciones
 
