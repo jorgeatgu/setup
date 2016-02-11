@@ -21,6 +21,8 @@
 
 ### Wallpaper
 
+Fondos de [Simple Desktops](simpledesktops.com)
+
 ![Pantalla principal](https://github.com/jorgeatgu/setup/blob/master/wallpaper/INSTANT_JOY.png)
 ![Pantalla secundaria](https://github.com/jorgeatgu/setup/blob/master/wallpaper/ArArAt.png)
 
