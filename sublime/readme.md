@@ -32,3 +32,7 @@
 - [Syntax Highlightinf for postCSS](https://github.com/hudochenkov/Syntax-highlighting-for-PostCSS)
 - [Terminal](https://github.com/wbond/sublime_terminal)
 - [Wakatime](https://github.com/wakatime/sublime-wakatime)
+
+##Theme
+
+![](https://github.com/jorgeatgu/setup/blob/master/sublime/packages-themes/sublime-theme-duotone.png)
