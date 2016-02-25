@@ -13,11 +13,11 @@ ZSH_THEME="ys"
 #uses tree
 
 function t(){
-	tree --dirsfirst --filelimit 15 -L ${1:-3} -C $2
+	tree --dirsfirst --filelimit 45 -L ${1:-3} -C $2
 }
 
 $ZSH/func/welcome.sh -c
-
+#
 autoload -U colors
 colors
 
@@ -56,8 +56,8 @@ source $ZSH/oh-my-zsh.sh
 export LANG=es_ES.UTF-8
 
 # Alias
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="sublime ~/.zshrc"
+alias ohmyzsh="sublime ~/.oh-my-zsh"
 alias gpl="git pull origin master"
 alias gpo="git push origin master"
 alias gc="git commit -m"
@@ -82,8 +82,10 @@ alias sasswatch="sass --watch scss/styles.scss:css/styles.css"
 alias wifipass="security find-generic-password -ga"
 alias wifion="networksetup -setairportpower en0 on"
 alias wifioff="networksetup -setairportpower en0 off"
+alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
 alias apagar="sudo poweroff"
 alias reiniciar="sudo reboot"
+alias initcss="mkdir css src && touch index.html index.js && cd src && mkdir css img js && cd css && touch styles.css && cd ../js && touch index.js && cd .. && cd .. && git add . && git commit -m 'estructura creada'"
 alias abrirsublime="open -a "Sublime Text""
 
 ### Added by the Heroku Toolbelt
