@@ -17,7 +17,7 @@ function t(){
 }
 
 $ZSH/func/welcome.sh -c
-#
+
 autoload -U colors
 colors
 
@@ -85,7 +85,7 @@ alias wifioff="networksetup -setairportpower en0 off"
 alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
 alias apagar="sudo poweroff"
 alias reiniciar="sudo reboot"
-alias initcss="mkdir css src && touch index.html index.js && cd src && mkdir css img js && cd css && touch styles.css && cd ../js && touch index.js && cd .. && cd .. && git add . && git commit -m 'estructura creada'"
+alias initcss="mkdir css src js img && touch index.html && cd src && mkdir css img js && cd css && touch styles.css && cd ../js && touch index.js && cd .. && cd .. && git init && git add . && git commit -m 'estructura creada'"
 alias abrirsublime="open -a "Sublime Text""
 
 ### Added by the Heroku Toolbelt
