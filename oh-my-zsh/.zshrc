@@ -100,6 +100,7 @@ alias initcss="mkdir css src js img && touch .gitignore && echo node_modules > .
 alias initproject="git clone https://github.com/jorgeatgu/base.git . && git remote rm origin && npm install && sudo ncu -u"
 alias abrirsublime="open -a "Sublime Text""
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --args --disable-web-security --user-data-dir"
+alias pomodoro="source $ZSH/func/pomodoro.sh -c"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
