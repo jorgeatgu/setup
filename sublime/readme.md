@@ -23,6 +23,7 @@
 - [Markdown Preview](https://github.com/revolunet/sublimetext-markdown-preview)
 - [Material Theme](http://equinusocio.github.io/material-theme/)
 - [Modific](https://github.com/gornostal/Modific)
+- [Origami](https://github.com/SublimeText/Origami/)
 - [PlainTasks](https://github.com/aziz/PlainTasks)
 - [SCSS](https://github.com/MarioRicalde/SCSS.tmbundle)
 - [SCSS Snippets](https://github.com/npostulart/SCSS-Snippets)
