@@ -29,4 +29,5 @@ if [ $# != 1 ]; then
                 # play is the only param
                 osascript -e 'tell application "Spotify" to play';
             fi
+osascript -e 'set volume 4'
 open -a "Pomodoro Time"
