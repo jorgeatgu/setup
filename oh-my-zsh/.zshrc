@@ -6,6 +6,7 @@ export PATH="/usr/local/bin:/usr/local/bin/sublime:~/bin:$PATH"
 
 
 source ~/.zplug/zplug
+zplug "jorgeatgu/zplug"
 
 # Make sure you use double quotes
 zplug "zsh-users/zsh-history-substring-search"
@@ -101,6 +102,7 @@ alias initproject="git clone https://github.com/jorgeatgu/base.git . && git remo
 alias abrirsublime="open -a "Sublime Text""
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --args --disable-web-security --user-data-dir"
 alias pomodoro="source $ZSH/func/pomodoro.sh -c"
+alias startserver="python -m SimpleHTTPServer"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -110,6 +112,7 @@ source ~/.pm/pm.sh
 ### Enhancd plugin para dar superpoderes al CD
 source ~/enhancd/enhancd.sh
 source ~/emoji-cli/emoji-cli.plugin.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -118,6 +121,5 @@ source $ZSH/func/zsh-syntax-highlighting.zsh
 function t(){
 	tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
 }
-
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
