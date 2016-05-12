@@ -101,7 +101,8 @@ alias initcss="mkdir css src js img && touch .gitignore && echo node_modules > .
 alias initproject="git clone https://github.com/jorgeatgu/base.git . && git remote rm origin && npm install && sudo ncu -u"
 alias abrirsublime="open -a "Sublime Text""
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --args --disable-web-security --user-data-dir"
-alias pomodoro="source $ZSH/func/pomodoro.sh -c"
+alias pomostart="source $ZSH/func/pomodoro.sh -c"
+alias pomoend="source $ZSH/func/pomodoro-end.sh -c"
 alias startserver="python -m SimpleHTTPServer"
 
 ### Added by the Heroku Toolbelt
@@ -121,5 +122,6 @@ source $ZSH/func/zsh-syntax-highlighting.zsh
 function t(){
 	tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
 }
+
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
