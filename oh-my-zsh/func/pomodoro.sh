@@ -1,6 +1,7 @@
 osascript -e 'quit app "Slack"'
 osascript -e 'quit app "Tweetbot"'
 osascript -e 'quit app "Mail"'
+osascript -e 'quit app "WhatsApp"'
 open -a "Spotify"
 # Script para darle al play Spotify
 # https://github.com/hnarayanan
