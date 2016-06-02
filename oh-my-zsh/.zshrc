@@ -101,9 +101,10 @@ alias initcss="mkdir css src js img && touch .gitignore && echo node_modules > .
 alias initproject="git clone https://github.com/jorgeatgu/base.git . && git remote rm origin && npm install && sudo ncu -u"
 alias abrirsublime="open -a "Sublime Text""
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --args --disable-web-security --user-data-dir"
-alias pomostart="source $ZSH/func/pomodoro.sh -c"
+alias pomostart="source $ZSH/func/pomodoro.sh -e start"
 alias pomoend="source $ZSH/func/pomodoro-end.sh -c"
 alias startserver="python -m SimpleHTTPServer"
+alias myip="ipconfig getifaddr en0"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -120,7 +121,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source $ZSH/func/zsh-syntax-highlighting.zsh
 
 function t(){
-	tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
+    tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
 }
 
 
