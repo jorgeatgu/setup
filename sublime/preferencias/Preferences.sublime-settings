@@ -31,7 +31,7 @@
 	"caret_extra_top": 3,
 	"caret_extra_width": 2,
 	"caret_style": "phase",
-	"color_scheme": "Packages/User/duotones-sublime-colorschemes/duotone-dark.dark.tmTheme",
+	"color_scheme": "Packages/Oceanic Next Color Scheme/Oceanic Next.tmTheme",
 	"default_font_size": 14,
 	"dictionary": "Packages/Language - Spanish/es_ES.dic",
 	"draw_minimap_border": true,
@@ -39,6 +39,7 @@
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Fira Code",
 	"font_size": 14,
+	"gpu_window_buffer": "auto",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -51,8 +52,9 @@
 	"overlay_scroll_bars": "enabled",
 	"save_on_focus_lost": true,
 	"spell_check": true,
+	"tab_size": 2,
 	"tabs_small": true,
-	"theme": "Material-Theme-Darker.sublime-theme",
+	"theme": "Material-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true
