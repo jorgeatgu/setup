@@ -27,7 +27,7 @@ ZSH_THEME="ys"
 
 #uses tree
 
-$ZSH/func/welcome.sh -c
+# $ZSH/func/welcome.sh -c
 
 autoload -U colors
 colors
@@ -98,9 +98,10 @@ alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairp
 alias apagar="sudo poweroff"
 alias reiniciar="sudo reboot"
 alias initcss="mkdir css src js img && touch .gitignore && echo node_modules > .gitignore && cp ~/documents/package.json ./ && cp ~/documents/gulpfile.js ./  && touch index.html && cd src && mkdir css img js && cd css && touch styles.css && cd ../js && touch index.js && cd .. && cd .. && git init && git add . && git commit -m 'estructura creada' && npm install"
-alias initproject="git clone https://github.com/jorgeatgu/base.git . && git remote rm origin && npm install && sudo ncu -u"
+alias initproject="git clone https://github.com/jorgeatgu/base.git && git init && git add . && git commit -m 'iniciando repo' && git remote rm origin && npm i && sudo ncu -u"
 alias abrirsublime="open -a "Sublime Text""
 alias canary="open -a /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --args --disable-web-security --user-data-dir"
+alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security --user-data-dir"
 alias pomostart="source $ZSH/func/pomodoro.sh -e start"
 alias pomoend="source $ZSH/func/pomodoro-end.sh -c"
 alias startserver="python -m SimpleHTTPServer"
@@ -121,7 +122,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source $ZSH/func/zsh-syntax-highlighting.zsh
 
 function t(){
-    tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
+  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
 }
 
 
