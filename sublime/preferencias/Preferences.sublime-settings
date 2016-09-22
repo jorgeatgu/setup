@@ -27,12 +27,12 @@
   ],
   "always_show_minimap_viewport": true,
   "auto_complete_selector": "source, text",
+  "bold_folder_labels": true,
   "caret_extra_bottom": 3,
   "caret_extra_top": 3,
   "caret_extra_width": 2,
   "caret_style": "phase",
-  "theme": "Material-Theme.sublime-theme",
-  "color_scheme": "Packages/Oceanic Next Color Scheme/Oceanic Next.tmTheme",
+  "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
   "default_font_size": 14,
   "detect_indentation": false,
   "dictionary": "Packages/Language - Spanish/es_ES.dic",
@@ -48,6 +48,13 @@
   [
     "Vintage"
   ],
+  "indent_guide_options":
+  [
+    "draw_active"
+  ],
+  "indent_to_bracket": true,
+  "line_padding_bottom": 2,
+  "line_padding_top": 2,
   "material_theme_appbar_indigo": true,
   "material_theme_tree_headings": true,
   "mid_line_tabs": false,
@@ -57,13 +64,8 @@
   "spell_check": true,
   "tab_size": 2,
   "tabs_small": true,
+  "theme": "Material-Theme.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": true,
-  "word_wrap": true,
-  "overlay_scroll_bars"          : "enabled",
-  "line_padding_top"             : 2,
-  "line_padding_bottom"          : 2,
-  "always_show_minimap_viewport" : true,
-  "bold_folder_labels"           : true,
-  "indent_guide_options"         : [ "draw_normal", "draw_active" ]
+  "word_wrap": true
 }
