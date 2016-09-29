@@ -1,9 +1,13 @@
 [
   { "keys": ["command+v"], "command": "paste_and_indent" },
+  {"keys": ["ctrl+super+w"], "command": "close_other_tabs"},
+  { "keys": ["ctrl+shift+w"], "command": "can_i_use"},
   { "keys": ["ctrl+super+c"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
   { "keys": ["ctrl+shift+a"], "command": "emmet_css_from_one_line" },
   { "keys": ["super+alt+shift+w"], "command": "close_to_right" },
   { "keys": ["command+shift+v"], "command": "paste" },
+  { "keys": ["ctrl+alt+f"], "command": "fold" },
+  { "keys": ["ctrl+alt+u"], "command": "unfold" },
   { "keys": ["ctrl+super+x"], "command": "find_all_under" },
   { "keys": ["super+shift+a"], "command": "open_in_browser" },
   { "keys": ["super+0"], "command": "reset_font_size_to_user_defaults" },
