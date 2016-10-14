@@ -126,3 +126,5 @@ function t(){
 
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+export PATH="$HOME/.yarn/bin:$PATH"
