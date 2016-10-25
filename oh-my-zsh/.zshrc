@@ -134,8 +134,8 @@ function initcss() {
   mkdir css src js img
   touch .gitignore
   echo node_modules > .gitignore
-  cp ~/documents/base-astral/package.json ./
-  cp ~/documents/base-astral/gulpfile.js ./
+  curl -O https://github.com/jorgeatgu/setup/blob/master/base/package.json
+  curl -O https://github.com/jorgeatgu/setup/blob/master/base/gulpfile.js
   touch index.html
   cd src
   mkdir css img js
