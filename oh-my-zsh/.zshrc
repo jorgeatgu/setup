@@ -134,8 +134,8 @@ function initcss() {
   mkdir css src js img
   touch .gitignore
   echo node_modules > .gitignore
-  curl -O https://github.com/jorgeatgu/setup/blob/master/base/package.json
-  curl -O https://github.com/jorgeatgu/setup/blob/master/base/gulpfile.js
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/package.json
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/gulpfile.js
   touch index.html
   cd src
   mkdir css img js
