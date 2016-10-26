@@ -153,7 +153,8 @@ function initcss() {
   git commit -m 'estructura creada' &&
   npm i &&
   git commit -m 'dependencias instaladas' &&
-  npm-check -u
+  npm-check -u &&
+  t
 }
 
 
