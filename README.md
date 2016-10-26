@@ -21,7 +21,7 @@
 
 ### Wallpaper
 
-![Pantalla principal](https://github.com/jorgeatgu/setup/blob/master/wallpaper/INSTANT_JOY.png)
+![Pantalla principal](https://github.com/jorgeatgu/setup/blob/master/wallpaper/wallpaper-oscuro.png)
 
 
 
