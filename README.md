@@ -10,6 +10,9 @@
 - [MacDown](http://macdown.uranusjr.com/)
 - [The Unarchiver](http://unarchiver.c3.cx/unarchiver)
 - [smcFanControl](http://www.eidac.de/)
+- [controlPane](https://www.controlplaneapp.com)
+- [numi](https://numi.io)
+- [ShifIt](https://github.com/fikovnik/ShiftIt)
 
 ## Navegadores
 
