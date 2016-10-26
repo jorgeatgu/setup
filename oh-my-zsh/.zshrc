@@ -129,30 +129,30 @@ function folder() {
 
 # Creando estructura de directorios y archivos para iniciar un proyecto desde cero
 function initcss() {
-  mkdir $1
-  cd $1
-  mkdir css src js img
-  touch .gitignore
-  echo node_modules > .gitignore
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/package.json
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/gulpfile.js
-  touch index.html
-  cd src
-  mkdir css img js
-  cd css
-  curl -O https://github.com/necolas/normalize.css/blob/master/normalize.css
-  mv normalize.css _reset.css
-  touch styles.css
-  echo @import 'reset' > styles.css
-  cd ../js
-  touch index.js
-  cd ..
-  cd ..
-  git init
-  git add .
-  git commit -m 'estructura creada'
-  npm i
-  git commit -m 'dependencias instaladas'
+  mkdir $1 &&
+  cd $1 &&
+  mkdir css src js img &&
+  touch .gitignore &&
+  echo node_modules > .gitignore &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/package.json &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/gulpfile.js &&
+  touch index.html &&
+  cd src &&
+  mkdir css img js &&
+  cd css &&
+  curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
+  mv normalize.css _reset.css &&
+  touch styles.css &&
+  echo @import 'reset' > styles.css &&
+  cd ../js &&
+  touch index.js &&
+  cd .. &&
+  cd .. &&
+  git init &&
+  git add . &&
+  git commit -m 'estructura creada' &&
+  npm i &&
+  git commit -m 'dependencias instaladas' &&
   npm-check -u
 }
 
