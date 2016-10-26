@@ -17,6 +17,7 @@ zplug "zsh-users/zsh-history-substring-search"
 # after executing compinit command and sourcing other plugins
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "b4b4r07/emoji-cli"
+zplug "b4b4r07/enhancd"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -117,9 +118,13 @@ alias kwmconfig="open -a 'Sublime Text' /usr/local/Cellar/kwm/4.0.2/kwmrc"
 # Funciones que uso a menudo
 
 # Listando directorios. Gracias a http://twitter.com/wesbos
-function t(){
-  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
+
+function t() {
+  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+# function t(){
+#   tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
+# }
 
 # Creando un directorito y entrando en el
 function folder() {
