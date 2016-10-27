@@ -91,12 +91,16 @@ alias wifipass="security find-generic-password -ga"
 alias wifion="networksetup -setairportpower en0 on"
 alias wifioff="networksetup -setairportpower en0 off"
 alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
-alias myip="ipconfig getifaddr en0"
+alias myip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 alias apagar="sudo poweroff"
 alias reiniciar="sudo reboot"
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
 alias startserver="python -m SimpleHTTPServer"
 alias abrirsublime="open -a "Sublime Text""
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
+
 
 # SCSS
 alias sw="sass --watch"
