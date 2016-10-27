@@ -131,8 +131,7 @@ function t() {
 
 # Creando un directorito y entrando en el
 function folder() {
-  mkdir $1
-  cd $1
+  mkdir -p "$@" && cd "$_";
 }
 
 # Creando estructura de directorios y archivos para iniciar un proyecto desde cero
