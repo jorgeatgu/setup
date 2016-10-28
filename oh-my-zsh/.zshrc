@@ -99,6 +99,8 @@ alias startserver="python -m SimpleHTTPServer"
 alias abrirsublime="open -a "Sublime Text""
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
+alias updateApps="mas upgrade"
+alias updateList="mas outdated"
 
 
 # SCSS
