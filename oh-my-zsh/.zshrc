@@ -92,8 +92,10 @@ alias wifion="networksetup -setairportpower en0 on"
 alias wifioff="networksetup -setairportpower en0 off"
 alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
 alias myip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-alias apagar="sudo poweroff"
-alias reiniciar="sudo reboot"
+
+# http://apple.stackexchange.com/questions/103571/using-the-terminal-command-to-shutdown-restart-and-sleep-my-mac
+# alias apagar="osascript -e 'tell app "System Events" to shut down'"
+# alias reiniciar="osascript -e 'tell app "System Events" to restart'"
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
 alias startserver="python -m SimpleHTTPServer"
 alias abrirsublime="open -a "Sublime Text""
@@ -136,6 +138,29 @@ function folder() {
   mkdir -p "$@" && cd "$_";
 }
 
+function reiniciar() {
+  osascript -e 'quit app "Slack"'
+  osascript -e 'quit app "Tweetbot"'
+  osascript -e 'quit app "Mail"'
+  osascript -e 'quit app "WhatsApp"'
+  osascript -e 'quit app "Spotify"'
+  osascript -e 'quit app "Sublime Text"'
+  osascript -e 'quit app "Opera"'
+  osascript -e 'tell app "System Events" to restart'
+}
+
+function apagar() {
+  osascript -e 'quit app "Slack"'
+  osascript -e 'quit app "Tweetbot"'
+  osascript -e 'quit app "Mail"'
+  osascript -e 'quit app "WhatsApp"'
+  osascript -e 'quit app "Spotify"'
+  osascript -e 'quit app "Sublime Text"'
+  osascript -e 'quit app "Opera"'
+  osascript -e 'tell app "System Events" to shut down'
+
+}
+
 # Creando estructura de directorios y archivos para iniciar un proyecto desde cero
 function initcss() {
   mkdir $1 &&
@@ -163,19 +188,22 @@ function initcss() {
   git commit -m 'estructura creada' &&
   npm i &&
   git commit -m 'dependencias instaladas' &&
-  npm-check -u &&
-  t
+  npm-check -u
 }
-
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # PM functions
 source ~/.pm/pm.sh
-### Enhancd plugin para dar superpoderes al CD
+
+# Enhancd plugin para dar superpoderes al CD
 source ~/enhancd/enhancd.sh
+
+# Emoji terminal
 source ~/emoji-cli/emoji-cli.plugin.zsh
+
+# Autocompletado a base de sugerencias
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
