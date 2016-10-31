@@ -184,6 +184,7 @@ function apagar() {
   end try
   set mensaje to "Apagando"
   display notification (the mensaje as text)
+  do shell script "/bin/sleep 3"
   tell app "System Events" to shut down'
 }
 
