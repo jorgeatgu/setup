@@ -157,6 +157,8 @@ function reiniciar() {
       end if
     end repeat
   end try
+  set mensaje to "Reiniciando"
+  display notification (the mensaje as text)
   tell application "System Events" to restart'
 }
 
@@ -179,6 +181,8 @@ function apagar() {
       end if
     end repeat
   end try
+  set mensaje to "Apagando"
+  display notification (the mensaje as text)
   tell app "System Events" to shut down'
 }
 
