@@ -159,6 +159,7 @@ function reiniciar() {
   end try
   set mensaje to "Reiniciando"
   display notification (the mensaje as text)
+  do shell script "/bin/sleep 5"
   tell application "System Events" to restart'
 }
 
