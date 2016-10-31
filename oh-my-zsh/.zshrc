@@ -138,27 +138,48 @@ function folder() {
   mkdir -p "$@" && cd "$_";
 }
 
+## Reboot
+## http://stackoverflow.com/questions/495323/quit-all-applications-using-applescript
 function reiniciar() {
-  osascript -e 'quit app "Slack"'
-  osascript -e 'quit app "Tweetbot"'
-  osascript -e 'quit app "Mail"'
-  osascript -e 'quit app "WhatsApp"'
-  osascript -e 'quit app "Spotify"'
-  osascript -e 'quit app "Sublime Text"'
-  osascript -e 'quit app "Opera"'
-  osascript -e 'tell app "System Events" to restart'
+  osascript -e '
+  tell application "System Events" to set the visible of every process to true
+  set white_list to {"Finder"}
+  try
+    tell application "Finder"
+      set process_list to the name of every process whose visible is true
+    end tell
+    repeat with i from 1 to (number of items in process_list)
+      set this_process to item i of the process_list
+      if this_process is not in white_list then
+        tell application this_process
+          quit
+        end tell
+      end if
+    end repeat
+  tell app "System Events" to restart
+  end try'
 }
 
+## Shutdown
+## http://stackoverflow.com/questions/495323/quit-all-applications-using-applescript
 function apagar() {
-  osascript -e 'quit app "Slack"'
-  osascript -e 'quit app "Tweetbot"'
-  osascript -e 'quit app "Mail"'
-  osascript -e 'quit app "WhatsApp"'
-  osascript -e 'quit app "Spotify"'
-  osascript -e 'quit app "Sublime Text"'
-  osascript -e 'quit app "Opera"'
-  osascript -e 'tell app "System Events" to shut down'
-
+  osascript -e '
+  tell application "System Events" to set the visible of every process to true
+  set white_list to {"Finder"}
+  try
+    tell application "Finder"
+      set process_list to the name of every process whose visible is true
+    end tell
+    repeat with i from 1 to (number of items in process_list)
+      set this_process to item i of the process_list
+      if this_process is not in white_list then
+        tell application this_process
+          quit
+        end tell
+      end if
+    end repeat
+  tell app "System Events" to shut down
+  end try'
 }
 
 # Creando estructura de directorios y archivos para iniciar un proyecto desde cero
