@@ -140,6 +140,7 @@ function folder() {
 
 ## Reboot
 ## http://stackoverflow.com/questions/495323/quit-all-applications-using-applescript
+## Modificado el script para que al lanzar el comando no cierre iTerm. Incluímos un mensaje para saber que script hemos ejecutado
 function reiniciar() {
   osascript -e '
   tell application "System Events" to set the visible of every process to true
@@ -165,10 +166,12 @@ function reiniciar() {
 
 ## Shutdown
 ## http://stackoverflow.com/questions/495323/quit-all-applications-using-applescript
+## Modificado el script. Incluímos un mensaje para saber que script hemos ejecutado
+
 function apagar() {
   osascript -e '
   tell application "System Events" to set the visible of every process to true
-  set white_list to {"Script Editor", "Finder", "iTerm2"}
+  set white_list to {"Script Editor", "Finder"}
   try
     tell application "Finder"
       set process_list to the name of every process whose visible is true
