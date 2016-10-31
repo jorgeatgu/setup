@@ -143,7 +143,7 @@ function folder() {
 function reiniciar() {
   osascript -e '
   tell application "System Events" to set the visible of every process to true
-  set white_list to {"Finder"}
+  set white_list to {"Script Editor", "Finder", "iTerm2"}
   try
     tell application "Finder"
       set process_list to the name of every process whose visible is true
@@ -156,8 +156,8 @@ function reiniciar() {
         end tell
       end if
     end repeat
-  tell app "System Events" to restart
-  end try'
+  end try
+  tell application "System Events" to restart'
 }
 
 ## Shutdown
@@ -165,7 +165,7 @@ function reiniciar() {
 function apagar() {
   osascript -e '
   tell application "System Events" to set the visible of every process to true
-  set white_list to {"Finder"}
+  set white_list to {"Script Editor", "Finder", "iTerm2"}
   try
     tell application "Finder"
       set process_list to the name of every process whose visible is true
@@ -178,8 +178,8 @@ function apagar() {
         end tell
       end if
     end repeat
-  tell app "System Events" to shut down
-  end try'
+  end try
+  tell app "System Events" to shut down'
 }
 
 # Creando estructura de directorios y archivos para iniciar un proyecto desde cero
