@@ -28,7 +28,7 @@ ZSH_THEME="ys"
 
 #uses tree
 
-# $ZSH/func/welcome.sh -c
+#$ZSH/func/welcome.sh -c
 
 autoload -U colors
 colors
@@ -121,6 +121,9 @@ alias pomoend="source $ZSH/func/pomodoro-end.sh -c"
 alias kwmStart="brew services start kwm"
 alias kwmStop="brew services stop kwm"
 alias kwmconfig="open -a 'Sublime Text' /usr/local/Cellar/kwm/4.0.2/kwmrc"
+
+# Obtener la previsión del tiempo
+alias tiempo="curl wttr.in/zaragoza"
 
 # Funciones que uso a menudo
 
@@ -246,3 +249,13 @@ source $ZSH/func/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+
+# Set variables in .zshrc file
+
+# don't forget to change your path correctly!
+
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
