@@ -1,0 +1,7 @@
+osascript -e 'quit app "Slack"'
+osascript -e 'quit app "Tweetbot"'
+osascript -e 'quit app "Mail"'
+osascript -e 'quit app "WhatsApp"'
+osascript -e 'quit app "Spotify"'
+osascript -e 'quit app "Sublime Text"'
+osascript -e 'tell app "System Events" to shut down'

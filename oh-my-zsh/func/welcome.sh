@@ -24,6 +24,9 @@ if [ -z "$ipAddress" ]; then
 fi
 
 case $versionShort in
+    10.12)
+        versionString="Sierra"
+        ;;
     10.11)
         versionString="El Capitan"
         ;;
@@ -115,6 +118,5 @@ ${PURPLE}     ######################           CPU: $cpu
 ${PURPLE}      ####################            Memory: $ram
 ${BLUE}        ################              Disk Used: $disk
 ${BLUE}         ####     #####               Internal IP: $ipAddress
-
 "
 tput sgr0
