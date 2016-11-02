@@ -158,7 +158,7 @@ function reiniciar() {
       end if
     end repeat
   end try
-  set mensaje to "Reiniciando"
+  set mensaje to "Reiniciando... 🚀"
   display notification (the mensaje as text)
   do shell script "/bin/sleep 5"
   tell application "System Events" to restart'
@@ -185,7 +185,7 @@ function apagar() {
       end if
     end repeat
   end try
-  set mensaje to "Apagando"
+  set mensaje to "Apagando 🚨"
   display notification (the mensaje as text)
   do shell script "/bin/sleep 3"
   tell app "System Events" to shut down'
@@ -218,7 +218,10 @@ function initcss() {
   git commit -m 'estructura creada' &&
   npm i &&
   git commit -m 'dependencias instaladas' &&
-  npm-check -u
+  npm-check -u &&
+  osascript -e'
+  set mensaje to "A picar código! 🤓 ⚒"
+  display notification (the mensaje as text)'
 }
 
 ### Added by the Heroku Toolbelt
