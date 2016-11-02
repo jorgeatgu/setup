@@ -223,8 +223,7 @@ function initcss() {
   git commit -m 'dependencias instaladas' &&
   npm-check -u &&
   osascript -e'
-  set mensaje to "A picar código! 🤓 ⚒"
-  display notification (the mensaje as text)'
+  display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
 ### Added by the Heroku Toolbelt
