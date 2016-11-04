@@ -162,8 +162,7 @@ function reiniciar() {
       end if
     end repeat
   end try
-  set mensaje to "Reiniciando... 🚀"
-  display notification (the mensaje as text)
+  display notification "Reiniciando... 🚀" with title "Empezamos de nuevo!"
   do shell script "/bin/sleep 5"
   tell application "System Events" to restart'
 }
@@ -189,8 +188,7 @@ function apagar() {
       end if
     end repeat
   end try
-  set mensaje to "Apagando 🚨"
-  display notification (the mensaje as text)
+  display notification "Apagando 🚨" with title "Adios!"
   do shell script "/bin/sleep 3"
   tell app "System Events" to shut down'
 }
