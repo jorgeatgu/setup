@@ -4,7 +4,6 @@ export ZSH=/Users/jorgeatgu/.oh-my-zsh
 export EDITOR='subl -w'
 export PATH="/usr/local/bin:/usr/local/bin/sublime:~/bin:$PATH"
 
-
 source ~/.zplug/zplug
 zplug "jorgeatgu/zplug"
 
@@ -25,16 +24,13 @@ zplug "b4b4r07/enhancd"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="ys"
 
-
-#uses tree
-
+#Antiguo mensaje de bienvenida
 #$ZSH/func/welcome.sh -c
 
 autoload -U colors
 colors
 
-#bateria
-
+# Movida para mostrar la bateria en el PROMPT
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%  →'
 RPROMPT='%{$fg[black]%}%{$fg[yellow]%}$(/$ZSH/func/batterycharge.sh)% %{$fg[white]%}'
 
@@ -58,7 +54,6 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(git github osx k emoji-cli)
 
 # User configuration
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -93,17 +88,24 @@ alias wifioff="networksetup -setairportpower en0 off"
 alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
 alias myip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-# http://apple.stackexchange.com/questions/103571/using-the-terminal-command-to-shutdown-restart-and-sleep-my-mac
-# alias apagar="osascript -e 'tell app "System Events" to shut down'"
-# alias reiniciar="osascript -e 'tell app "System Events" to restart'"
+#Generando un password y copiandolo en el portapapeles
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
+
+#Lanzando un servidor
 alias startserver="python -m SimpleHTTPServer"
 alias abrirsublime="open -a "Sublime Text""
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
-alias updateApps="mas upgrade"
-alias updateList="mas outdated"
 
+#Away from keyboard :smoking:
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+#Update masivo actualizaciones OSX, Brew, NPM y GEM.
+alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
+
+#Update de apps de la AppStore
+alias updateApps="mas upgrade"
+
+#Apps desactualizadas de la AppStore
+alias updateList="mas outdated"
 
 # SCSS
 alias sw="sass --watch"
@@ -128,7 +130,6 @@ alias tiempo="curl wttr.in/zaragoza"
 # Funciones que uso a menudo
 
 # Listando directorios. Gracias a http://twitter.com/wesbos
-
 function t() {
   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
@@ -147,7 +148,7 @@ function folder() {
 function reiniciar() {
   osascript -e '
   tell application "System Events" to set the visible of every process to true
-  set white_list to {"Script Editor", "Finder", "iTerm2"}
+  set white_list to {"Finder", "iTerm2"}
   try
     tell application "Finder"
       set process_list to the name of every process whose visible is true
@@ -174,7 +175,7 @@ function reiniciar() {
 function apagar() {
   osascript -e '
   tell application "System Events" to set the visible of every process to true
-  set white_list to {"Script Editor", "Finder"}
+  set white_list to {"Finder", "iTerm2"}
   try
     tell application "Finder"
       set process_list to the name of every process whose visible is true
@@ -193,6 +194,45 @@ function apagar() {
   do shell script "/bin/sleep 3"
   tell app "System Events" to shut down'
 }
+
+# LOCURON! Abriendo apps con applescript y pasandole comandos para centrarlas con ShiftIt. No apto para losers que trabajan con las aplicaciones a full screen
+
+function trabajo() {
+  osascript -e '
+  tell application "Mail" to activate
+  tell application "Opera" to activate
+  tell application "ShiftIt" to activate
+  tell application "System Events"
+    keystroke "p" using {control down, option down, command down}
+    keystroke "c" using {control down, option down, command down}
+  end tell
+  tell application "Slack" to activate
+  tell application "ShiftIt" to activate
+  tell application "System Events"
+    keystroke "," using {control down, option down, command down}
+    keystroke "c" using {control down, option down, command down}
+  end tell
+  tell application "Sublime Text" to activate
+  tell application "ShiftIt" to activate
+  tell application "System Events"
+    keystroke "," using {control down, option down, command down}
+    keystroke "c" using {control down, option down, command down}
+  end tell
+  tell application "iTerm2" to activate
+  tell application "ShiftIt" to activate
+  tell application "System Events"
+    keystroke "n" using {control down, option down, command down}
+    keystroke "c" using {control down, option down, command down}
+  end tell'
+}
+
+
+# tell application "System Events"
+#   activate
+#   get name of every desktop
+#   set DesktopNames to name of every desktop
+# end tell
+# DesktopNames
 
 # Creando estructura de directorios y archivos para iniciar un proyecto desde cero
 function initcss() {
@@ -229,6 +269,9 @@ function initcss() {
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+#Autocompletando rutas infernales a base de sugerencias, no esta mal pero es mejor enhancd
+[[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
+
 # PM functions
 source ~/.pm/pm.sh
 
@@ -250,13 +293,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 export PATH="$HOME/.yarn/bin:$PATH"
 
 
-# Set variables in .zshrc file
-
+# Movidas de GO!
 # don't forget to change your path correctly!
-
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-
-[[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
