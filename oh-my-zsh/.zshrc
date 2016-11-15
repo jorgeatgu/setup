@@ -90,6 +90,7 @@ alias wifion="networksetup -setairportpower en0 on"
 alias wifioff="networksetup -setairportpower en0 off"
 alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
 alias myip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+alias remapkey="/Users/jorgeatgu/Downloads/EasyAVR-master/easykeymap.sh"
 
 #Generando un password y copiandolo en el portapapeles
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
