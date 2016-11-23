@@ -268,6 +268,36 @@ function initcss() {
   display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
+#Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
+function initcss-wf() {
+  mkdir css src js img &&
+  touch .gitignore &&
+  echo node_modules > .gitignore &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/.stylelintrc &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/package.json &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/gulpfile.js &&
+  touch index.html &&
+  cd src &&
+  mkdir css img js &&
+  cd css &&
+  curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
+  mv normalize.css _reset.css &&
+  touch styles.css &&
+  echo @import 'reset' > styles.css &&
+  cd ../js &&
+  touch index.js &&
+  cd .. &&
+  cd .. &&
+  git init &&
+  git add . &&
+  git commit -m 'estructura creada' &&
+  npm i &&
+  git commit -m 'dependencias instaladas' &&
+  npm-check -u &&
+  osascript -e'
+  display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
+}
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
