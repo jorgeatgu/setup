@@ -315,10 +315,8 @@ function initcss-wf() {
   git add . &&
   git commit -m 'estructura creada' &&
   npm i &&
-  git commit -m 'dependencias instaladas' &&
   npm-check -u &&
-  osascript -e'
-  display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
+  osascript -e 'display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
 ### Added by the Heroku Toolbelt
