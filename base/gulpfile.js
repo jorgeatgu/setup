@@ -3,7 +3,8 @@ postcss = require('gulp-postcss');
 autoprefixer = require('gulp-autoprefixer');
 sourcemaps = require('gulp-sourcemaps');
 atImport = require('postcss-import');
-cssnext = require('postcss-cssnext');
+selector = require('postcss-custom-selectors')
+customProperties = require("postcss-custom-properties")
 sorting = require('postcss-sorting');
 nested = require('postcss-nested');
 pxtorem = require('postcss-pxtorem');
@@ -85,7 +86,8 @@ gulp.task('css', function() {
     }),
     atImport,
     nested,
-    cssnext,
+    selector,
+    customProperties,
     pxtorem({
       root_value: 16,
       unit_precision: 2,
