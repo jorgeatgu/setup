@@ -315,7 +315,7 @@ function initcss-wf() {
   git add . &&
   git commit -m 'estructura creada' &&
   npm i &&
-  npm-check -u &&
+  sudo npm-check -u &&
   osascript -e 'display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
