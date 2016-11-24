@@ -306,8 +306,7 @@ function initcss-wf() {
   cd ../pages &&
   touch _home.css &&
   cd .. &&
-  touch styles.css &&
-  echo @import 'reset' > styles.css &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/styles.css
   cd ../js &&
   touch index.js &&
   cd .. &&
