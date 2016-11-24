@@ -280,8 +280,20 @@ function initcss-wf() {
   cd src &&
   mkdir css img js &&
   cd css &&
+  mkdir base components layout pages &&
+  cd base &&
   curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
   mv normalize.css _reset.css &&
+  touch _variables.css &&
+  cd ../components &&
+  touch _buttons.css &&
+  touch _navigation.css &&
+  cd ../layout &&
+  touch _header.css &&
+  touch _footer.css &&
+  cd ../pages &&
+  touch _home.css &&
+  cd .. &&
   touch styles.css &&
   echo @import 'reset' > styles.css &&
   cd ../js &&
