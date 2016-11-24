@@ -13,7 +13,7 @@ Plugins:
 * postcss-sorting
 * stylelint
 
-[Un artículo sobre el comando que inicia toda la magia](http://jorgeatgu.com/blog/iniciando-proyectos-desde-cero/)
+[Un artículo sobre función de bash que inicia toda la magia](http://jorgeatgu.com/blog/iniciando-proyectos-desde-cero/)
 
 
 
