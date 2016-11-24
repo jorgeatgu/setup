@@ -17,6 +17,7 @@ notify = require('gulp-notify');
 stylelint = require('stylelint');
 browserSync = require('browser-sync');
 
+
 gulp.task("browserSync", function() {
   browserSync({
     server: {
@@ -24,7 +25,6 @@ gulp.task("browserSync", function() {
     }
   })
 });
-
 
 /* Variables */
 var imgSrc = './src/img/*';
@@ -74,7 +74,7 @@ gulp.task('compress', function() {
  *
  * Antes de que nuestro CSS empiece a ser transformado por los diferentes
  * plugins vamos a 'lintear' nuestro CSS para seguir un orden y concierto.
- * este párrafo.
+ *
  *
  */
 
