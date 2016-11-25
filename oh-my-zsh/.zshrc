@@ -256,11 +256,9 @@ function initcss() {
   mv normalize.css _reset.css &&
   touch _variables.css &&
   cd ../components &&
-  touch _buttons.css &&
-  touch _navigation.css &&
+  touch _{_buttons,navigation}.css &&
   cd ../layout &&
-  touch _header.css &&
-  touch _footer.css &&
+  touch _{header,footer}.css &&
   cd ../pages &&
   touch _home.css &&
   cd .. &&
@@ -298,11 +296,9 @@ function initcss-wf() {
   mv normalize.css _reset.css &&
   touch _variables.css &&
   cd ../components &&
-  touch _buttons.css &&
-  touch _navigation.css &&
+  touch _{_buttons,navigation}.css &&
   cd ../layout &&
-  touch _header.css &&
-  touch _footer.css &&
+  touch _{header,footer}.css &&
   cd ../pages &&
   touch _home.css &&
   cd .. &&
