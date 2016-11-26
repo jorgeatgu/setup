@@ -283,9 +283,9 @@ function initcss-wf() {
   mkdir css src js img &&
   touch .gitignore &&
   echo node_modules > .gitignore &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/.stylelintrc &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/package.json &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/gulpfile.js &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/.stylelintrc &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/package.json &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/gulpfile.js &&
   touch index.html &&
   cd src &&
   mkdir css img js &&
