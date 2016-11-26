@@ -262,8 +262,7 @@ function initcss() {
   cd ../pages &&
   touch _home.css &&
   cd .. &&
-  touch styles.css &&
-  echo @import 'reset' > styles.css &&
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/styles.css
   cd ../js &&
   touch index.js &&
   cd .. &&
@@ -302,7 +301,7 @@ function initcss-wf() {
   cd ../pages &&
   touch _home.css &&
   cd .. &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/base/styles.css
+  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/styles.css
   cd ../js &&
   touch index.js &&
   cd .. &&
