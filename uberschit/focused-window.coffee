@@ -5,8 +5,6 @@ IFS='|' read -r theArtist theName <<<"$(osascript <<<'tell application "Spotify"
         set theTrack to current track
         set theArtist to artist of theTrack
         set theName to name of theTrack
-        // Include position and duration
-        // https://github.com/hnarayanan/shpotify/blob/master/spotify#L89
         set durSec to (duration of current track / 1000) as text
         set tM to (round (durSec / 60) rounding down) as text
         if length of ((durSec mod 60 div 1) as text) is greater than 1 then
