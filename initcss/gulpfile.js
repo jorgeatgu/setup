@@ -86,7 +86,8 @@ gulp.task('compress', function() {
        clearMessages: true
      }),
      nested,
-     cssnext,
+     customProperties,
+     selector,
      pxtorem({
        root_value: 16,
        unit_precision: 2,
