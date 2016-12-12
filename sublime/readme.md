@@ -7,6 +7,7 @@
 - [Better Completion](https://github.com/Pleasurazy/Sublime-Better-Completion)
 - [BracketGuard](https://github.com/philippotto/Sublime-BracketGuard)
 - [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter)
+- [CloseOtherTabs](https://github.com/werkzeugh/CloseOtherWindows_SublimePlugin)
 - [Color Highlighter](https://packagecontrol.io/packages/Color%20Highlighter)
 - [CSS Format](http://mutian.github.io/Sublime-CSS-Format/)
 - [eCSStractor](https://github.com/hudochenkov/ecsstractor)
