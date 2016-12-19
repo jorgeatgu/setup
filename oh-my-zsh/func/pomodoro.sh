@@ -1,7 +1,27 @@
-osascript -e 'quit app "Slack"'
-osascript -e 'quit app "Tweetbot"'
-osascript -e 'quit app "Mail"'
-osascript -e 'quit app "WhatsApp"'
+# La whitelist es la lista de aplicaciones que no quieres cerrar, aplicación
+# que este abierta en el momento de lanzar script sera cerrada. Abrimos las
+# aplicaciones con las que producimos
+
+osascript -e '
+  tell application "System Events" to set the visible of every process to true
+  set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera"}
+  try
+    tell application "Finder"
+      set process_list to the name of every process whose visible is true
+    end tell
+    repeat with i from 1 to (number of items in process_list)
+      set this_process to item i of the process_list
+      if this_process is not in white_list then
+        tell application this_process
+          quit
+        end tell
+      end if
+    end repeat
+  end try
+  tell application "Sublime Text" to activate
+  tell application "iTerm2" to activate
+  tell application "Opera" to activate
+'
 open -a "Spotify"
 # Script para darle al play Spotify
 # https://github.com/hnarayanan
@@ -30,5 +50,13 @@ if [ $# != 1 ]; then
                 # play is the only param
                 osascript -e 'tell application "Spotify" to play';
             fi
-osascript -e 'set volume 7'
-open -a "Pomodoro Time"
+# Utilizando la app de Pomodoro creada por Rachel Smith
+# https://github.com/rachsmithcodes/my-pomodoro
+# Activando a través de atajos de teclado de AppleScript el inicio del Pomodoro
+osascript -e '
+tell application "My Pomodoro" to activate
+repeat 7 times
+  tell application "System Events" to key code 48
+end repeat
+tell application "System Events" to key code 49
+display notification "Empezando pomodoro 🍅" with title "A picar código! 🤓 ⚒"'
