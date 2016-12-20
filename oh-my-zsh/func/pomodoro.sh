@@ -55,10 +55,11 @@ if [ $# != 1 ]; then
 # Activando a través de atajos de teclado de AppleScript el inicio del Pomodoro
 osascript -e '
 delay 2
-tell application "My Pomodoro" to activate
-delay 2
-repeat 7 times
-  tell application "System Events" to key code 48
-end repeat
-tell application "System Events" to key code 49
+tell application "My Pomodoro"
+  if it is running then
+    display notification "Pomodoro 🍅 ya esta abierto" with title "A currar!"
+  else
+    activate
+  end if
+end tell
 display notification "Empezando pomodoro 🍅" with title "A picar código! 🤓 ⚒"'
