@@ -21,45 +21,15 @@ osascript -e '
   tell application "Sublime Text" to activate
   tell application "iTerm2" to activate
   tell application "Opera" to activate
-'
-open -a "Spotify"
-# Script para darle al play Spotify
-# https://github.com/hnarayanan
-# https://github.com/hnarayanan/shpotify/blob/master/spotify
-if [ $# != 1 ]; then
-                # There are additional arguments, so find out how many
-                array=( $@ );
-                len=${#array[@]};
-                SPOTIFY_SEARCH_API="https://api.spotify.com/v1/search"
-                SPOTIFY_PLAY_URI="";
-
-                searchAndPlay() {
-                    type="$1"
-                    Q="$2"
-
-                    cecho "Searching ${type}s for: $Q";
-
-                    SPOTIFY_PLAY_URI=$( \
-                        curl -s -G $SPOTIFY_SEARCH_API --data-urlencode "q=$Q" -d "type=$type&limit=1&offset=0" -H "Accept: application/json" \
-                        | grep -E -o "spotify:$type:[a-zA-Z0-9]+" -m 1
-                    )
-                }
-
-            else
-
-                # play is the only param
-                osascript -e 'tell application "Spotify" to play';
-            fi
-# Utilizando la app de Pomodoro creada por Rachel Smith
-# https://github.com/rachsmithcodes/my-pomodoro
-# Activando a través de atajos de teclado de AppleScript el inicio del Pomodoro
-osascript -e '
-delay 2
-tell application "My Pomodoro"
+  tell application "Spotify" to activate
+  delay 1
+  tell application "Spotify" to play
+  tell application "My Pomodoro"
   if it is running then
     display notification "Pomodoro 🍅 ya esta abierto" with title "A currar!"
   else
     activate
   end if
-end tell
-display notification "Empezando pomodoro 🍅" with title "A picar código! 🤓 ⚒"'
+  end tell
+  display notification "Empezando pomodoro 🍅" with title "A picar código! 🤓 ⚒"
+'
