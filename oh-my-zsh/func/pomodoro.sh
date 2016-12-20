@@ -2,6 +2,7 @@
 # que este abierta en el momento de lanzar script sera cerrada. Abrimos las
 # aplicaciones con las que producimos
 
+
 osascript -e '
   tell application "System Events" to set the visible of every process to true
   set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera"}
@@ -31,5 +32,6 @@ osascript -e '
     activate
   end if
   end tell
-  display notification "Empezando pomodoro 🍅" with title "A picar código! 🤓 ⚒"
 '
+
+open -a terminal-notifier --args -message "A trabajar!" -title "🍅" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
