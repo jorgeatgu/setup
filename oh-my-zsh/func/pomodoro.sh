@@ -23,7 +23,7 @@ osascript -e '
   tell application "iTerm2" to activate
   tell application "Opera" to activate
   tell application "Spotify" to activate
-  delay 1
+  delay 3
   tell application "Spotify" to play
   tell application "My Pomodoro"
   if it is running then
