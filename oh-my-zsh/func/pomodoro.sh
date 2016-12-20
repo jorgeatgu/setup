@@ -54,7 +54,9 @@ if [ $# != 1 ]; then
 # https://github.com/rachsmithcodes/my-pomodoro
 # Activando a través de atajos de teclado de AppleScript el inicio del Pomodoro
 osascript -e '
+delay 2
 tell application "My Pomodoro" to activate
+delay 2
 repeat 7 times
   tell application "System Events" to key code 48
 end repeat
