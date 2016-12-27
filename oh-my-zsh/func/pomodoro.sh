@@ -2,7 +2,6 @@
 # que este abierta en el momento de lanzar script sera cerrada. Abrimos las
 # aplicaciones con las que producimos
 
-
 osascript -e '
   tell application "System Events" to set the visible of every process to true
   set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera"}
