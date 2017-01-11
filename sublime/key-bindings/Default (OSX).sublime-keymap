@@ -13,6 +13,7 @@
   { "keys": ["super+0"], "command": "reset_font_size_to_user_defaults" },
   { "keys": ["super+u"], "command": "soft_undo" },
   { "keys": ["super+f12"], "command": "reindent"},
+  { "keys": ["ctrl+alt+a"], "command": "expand_selection", "args": {"to": "tag"} },
   { "keys": ["super+shift+o"], "command": "prompt_add_folder" },
   { "keys": ["alt+super+p"], "command": "autoprefixer" },
   { "keys": ["super+shift+e"], "command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} },
