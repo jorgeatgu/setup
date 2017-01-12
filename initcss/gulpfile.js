@@ -106,7 +106,7 @@ gulp.task('compress', function() {
    .pipe(sourcemaps.init())
      .pipe(postcss(processors))
      .on("error", errorAlertPost)
-     .pipe(sourcemaps.write('./css', {
+     .pipe(sourcemaps.write('./', {
        sourceRoot: '/src'
      }))
      .pipe(gulp.dest('./css'))
