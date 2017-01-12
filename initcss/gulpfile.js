@@ -16,6 +16,7 @@ nano = require('gulp-cssnano');
 notify = require('gulp-notify');
 stylelint = require('stylelint');
 browserSync = require('browser-sync');
+smoosher = require('gulp-smoosher');
 
 
 gulp.task("browserSync", function() {
@@ -154,3 +155,11 @@ gulp.task('default', ["browserSync"], function() {
 
 /* Tarea final para comprimir CSS y JavaScript */
 gulp.task('build', ['minify', 'compress']);
+
+/* Tarea para meter todos los estilos entre etiquetas <style> */
+
+gulp.task('inline', function () {
+    gulp.src('*.html')
+    .pipe(smoosher())
+    .pipe(gulp.dest('dist'));
+});
