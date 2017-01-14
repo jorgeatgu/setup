@@ -4,13 +4,5 @@
   Estructura básica para iniciar cualquier proyecto con postCSS
 */
 
-@import 'base/_reset';
-@import 'base/_variables';
-
-@import 'components/_buttons';
-@import 'components/_navigation';
-
-@import 'layout/_header';
-@import 'layout/_footer';
-
-@import 'pages/_home';
+@import '_reset';
+@import '_variables';
