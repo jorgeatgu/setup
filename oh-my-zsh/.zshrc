@@ -248,18 +248,9 @@ function initcss() {
   cd src &&
   mkdir css img js &&
   cd css &&
-  mkdir base components layout pages &&
-  cd base &&
   curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
   mv normalize.css _reset.css &&
   touch _variables.css &&
-  cd ../components &&
-  touch _{buttons,navigation}.css &&
-  cd ../layout &&
-  touch _{header,footer}.css &&
-  cd ../pages &&
-  touch _home.css &&
-  cd .. &&
   curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/styles.css
   cd ../js &&
   touch index.js &&
