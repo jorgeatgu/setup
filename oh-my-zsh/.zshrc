@@ -146,6 +146,17 @@ function folder() {
   mkdir -p "$@" && cd "$_";
 }
 
+# function to list the git repos with status
+## https://github.com/eckelon/dotfiles/blob/0c0d0fe5dc7cdef7e52e83c8bf0c6fbea408bbec/zshrc#L29-L35
+
+function gitls() {
+    for d in *; do
+        if [[ -d "$d" && -e "$d/.git" ]]; then
+            echo "$d -> $(cd "$d" && git_prompt_info | sed 's/%//g;s/{//g;s/}//g')"
+        fi
+    done
+}
+
 ## Reboot
 ## http://stackoverflow.com/questions/495323/quit-all-applications-using-applescript
 ## Modificado el script para que al lanzar el comando no cierre iTerm. Incluímos un mensaje para saber que script hemos ejecutado
