@@ -66,6 +66,11 @@ export LANG=es_ES.UTF-8
 alias zshconfig="sublime ~/.zshrc"
 alias ohmyzsh="sublime ~/.oh-my-zsh"
 
+# Abriendo proyectos de Sublime Text a través de CLI
+alias sgithub="subl --projects github"
+alias sblog="subl --projects blog"
+alias sweb="subl --projects web"
+
 # Git
 alias gpull="git pull origin"
 alias gpush="git push origin"
@@ -320,6 +325,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # PM functions
 source ~/.pm/pm.sh
+
+# Z functions
+source ~/z/z.sh
 
 # Enhancd plugin para dar superpoderes al CD
 source ~/enhancd/enhancd.sh
