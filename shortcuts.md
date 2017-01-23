@@ -17,6 +17,12 @@ super + alt + shift + w = cerrar todas las tabs de la derecha
 
 ## Terminal
 
+⌃ + u = borrar hasta el principio de línea
+⌃ + k = eliminar hasta el final de línea
+alt + b = moverse entre palabras hacía el principio
+alt + f = moverse entre palabras hacía el final
+alt + ñ = virgulilla
+
 
 
 
