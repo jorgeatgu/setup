@@ -22,6 +22,9 @@ super + alt + shift + w = cerrar todas las tabs de la derecha
 alt + b = moverse entre palabras hacía el principio
 alt + f = moverse entre palabras hacía el final
 alt + ñ = virgulilla
+⌃ + r = busqueda de comandos
+⌃ + p = comando previo
+⌃ + n = comando siguiente
 
 
 

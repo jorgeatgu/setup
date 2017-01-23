@@ -335,6 +335,10 @@ function stproject() {
   subl --projects "$1"
 }
 
+##Elimina del historial los comandos duplicados
+export HISTCONTROL=ignoreboth:erasedups
+
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
