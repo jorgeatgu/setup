@@ -70,6 +70,7 @@ alias ohmyzsh="sublime ~/.oh-my-zsh"
 alias sgithub="subl --projects github"
 alias sblog="subl --projects blog"
 alias sweb="subl --projects web"
+alias ssetup="subl --projects setup"
 
 # Git
 alias gpull="git pull origin"
@@ -315,6 +316,23 @@ function initcss-wf() {
   npm i &&
   sudo npm-check -u &&
   osascript -e 'display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
+}
+
+
+### En Aragonés alcorzar es lo mismo que atajar en castellano. Esta función abre Helium y la web donde alojo todos los atajos de teclado útiles pero que no uso con la suficiente frecuencia.
+function alcorze() {
+  open -a Helium &&
+  osascript -e '
+  tell application "Helium" to activate
+  tell application "System Events"
+    click menu item “Location” of menu 1 of menu bar item “Open Web Url” of menu bar 1
+  end tell
+  '
+}
+
+function stproject() {
+  subl --newwindow;
+  subl --projects "$1"
 }
 
 ### Added by the Heroku Toolbelt
