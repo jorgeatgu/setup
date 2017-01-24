@@ -97,6 +97,9 @@ alias wifioff="networksetup -setairportpower en0 off"
 alias wifireboot="networksetup -setairportpower en0 off && networksetup -setairportpower en0 on"
 alias myip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 alias remapkey="/Users/jorgeatgu/Downloads/EasyAVR-master/easykeymap.sh"
+alias papelera="sudo rm -rfv /Volumes/\*/.Trashes; sudo rm -rfv \$HOME/.Trash/; sudo rm -rfv /private/var/log/asl/\*.asl"
+alias spapelera="sudo srm -rfv /Volumes/\*/.Trashes; sudo srm -rfv \$HOME/.Trash/; sudo srm -rfv /private/var/log/asl/\*.asl"
+
 
 #Generando un password y copiandolo en el portapapeles
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
@@ -109,7 +112,7 @@ alias abrirsublime="open -a "Sublime Text""
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 #Update masivo actualizaciones OSX, Brew, NPM y GEM.
-alias updateAll="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
+alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
 
 alias updateOSX="sudo softwareupdate -i -a"
 alias updateBrew="brew update; brew upgrade; brew cleanup;"
