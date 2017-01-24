@@ -31,8 +31,8 @@ autoload -U colors
 colors
 
 # Movida para mostrar la bateria en el PROMPT
-PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%  →'
-RPROMPT='%{$fg[black]%}%{$fg[yellow]%}$(/$ZSH/func/batterycharge.sh)% %{$fg[white]%}'
+#PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%  →'
+RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}$(/$ZSH/func/batterycharge.sh)% 💻 %{$fg[white]%}'
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -109,7 +109,12 @@ alias abrirsublime="open -a "Sublime Text""
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 #Update masivo actualizaciones OSX, Brew, NPM y GEM.
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
+alias updateAll="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
+
+alias updateOSX="sudo softwareupdate -i -a"
+alias updateBrew="brew update; brew upgrade; brew cleanup;"
+alias updateNpm="npm i npm -g; npm update -g"
+alias updateGem="sudo gem update --system; sudo gem update; sudo gem cleanup"
 
 #Update de apps de la AppStore
 alias updateApps="mas upgrade"
