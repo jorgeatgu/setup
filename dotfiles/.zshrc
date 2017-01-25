@@ -31,8 +31,9 @@ autoload -U colors
 colors
 
 # Movida para mostrar la bateria en el PROMPT
-#PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%  →'
+PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%'
 RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}$(/$ZSH/func/batterycharge.sh)% 💻 %{$fg[white]%}'
+
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -66,6 +67,12 @@ export LANG=es_ES.UTF-8
 alias zshconfig="sublime ~/.zshrc"
 alias ohmyzsh="sublime ~/.oh-my-zsh"
 
+# Alias suffix
+
+alias -s git='git clone'
+alias -s sass='subl'
+alias -s css='subl'
+
 # Abriendo proyectos de Sublime Text a través de CLI
 alias sgithub="subl --projects github"
 alias sblog="subl --projects blog"
@@ -78,6 +85,7 @@ alias gpush="git push origin"
 alias gc="git commit -m"
 alias gs="git status"
 alias ga="git add"
+alias pullpush="git pull origin $(current_branch) && git push origin $(current_branch)"
 
 # Jekyll
 alias jekyllb="sudo jekyll build"
