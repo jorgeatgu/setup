@@ -70,7 +70,7 @@ alias ohmyzsh="sublime ~/.oh-my-zsh"
 # Alias suffix
 
 alias -s git='git clone'
-alias -s sass='subl'
+alias -s scss='subl'
 alias -s css='subl'
 
 # Abriendo proyectos de Sublime Text a través de CLI
