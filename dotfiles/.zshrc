@@ -336,11 +336,13 @@ function initcss-wf() {
 ### Theme night Tweetbot
 
 function tweetbotNight() {
-  osascript -e 'quit app "Tweetbot"' &&
-  cd ~/Desktop/ &&
+  cd /Applications/Tweetbot.app/Contents/Resources &&
+  sudo rm -rf Colors.plist &&
   curl -O "https://raw.githubusercontent.com/lucifr/Tweetbot-for-Mac-ColorScheme/master/Night/Colors.plist" &&
-  sudo cp ~/Desktop/Colors.plist /Applications/Tweetbot.app/Contents/Resources &&
-  osascript -e 'tell application "Tweetbot" to activate'
+  osascript -e '
+  tell application "Tweetbot" to quit
+  tell application "Tweetbot" to activate
+  '
 }
 
 
@@ -363,7 +365,12 @@ function stproject() {
 
 # Alias maquinas infernales con Güindows - IE9 to Edge
 function vie() {
-  VBoxManage startvm "IE11" --type headless
+  ##osascript -e 'tell application "VirtualBox" to activate' &&
+  VBoxManage startvm "$@"
+}
+
+function vieOff() {
+  VBoxManage controlvm "$@" acpipowerbutton
 }
 
 ##Elimina del historial los comandos duplicados
