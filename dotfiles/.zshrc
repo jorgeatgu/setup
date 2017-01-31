@@ -32,7 +32,7 @@ colors
 
 # Movida para mostrar la bateria en el PROMPT
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%'
-RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}$(/$ZSH/func/batterycharge.sh)% 💻 %{$fg[white]%}'
+RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}$(/$ZSH/func/batterycharge.sh)%  💻'
 
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -68,9 +68,8 @@ alias zshconfig="sublime ~/.zshrc"
 alias ohmyzsh="sublime ~/.oh-my-zsh"
 
 # Alias suffix
-
 alias -s git='git clone'
-alias -s scss='subl'
+alias -s sass='subl'
 alias -s css='subl'
 
 # Abriendo proyectos de Sublime Text a través de CLI
@@ -334,6 +333,16 @@ function initcss-wf() {
   osascript -e 'display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
+### Theme night Tweetbot
+
+function tweetbotNight() {
+  osascript -e 'quit app "Tweetbot"' &&
+  cd ~/Desktop/ &&
+  curl -O "https://raw.githubusercontent.com/lucifr/Tweetbot-for-Mac-ColorScheme/master/Night/Colors.plist" &&
+  sudo cp ~/Desktop/Colors.plist /Applications/Tweetbot.app/Contents/Resources &&
+  osascript -e 'tell application "Tweetbot" to activate'
+}
+
 
 ### En Aragonés alcorzar es lo mismo que atajar en castellano. Esta función abre Helium y la web donde alojo todos los atajos de teclado útiles pero que no uso con la suficiente frecuencia.
 function alcorze() {
@@ -349,6 +358,12 @@ function alcorze() {
 function stproject() {
   subl --newwindow;
   subl --projects "$1"
+}
+
+
+# Alias maquinas infernales con Güindows - IE9 to Edge
+function vie() {
+  VBoxManage startvm "IE11" --type headless
 }
 
 ##Elimina del historial los comandos duplicados
