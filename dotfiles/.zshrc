@@ -92,6 +92,7 @@ alias jekylls="sudo jekyll serve"
 alias jsd="jekyll serve drafts"
 
 # OSX
+alias opera="/Applications/Opera.app/Contents/MacOS/Opera"
 alias ocultararchivos="defaults write com.apple.finder AppleShowAllFiles FALSE;killall Finder"
 alias mostrararchivos="defaults write com.apple.finder AppleShowAllFiles TRUE;killall Finder"
 alias bateria="pmset -g batt | egrep '([0-9]+\%).*' -o --colour=auto | cut -f1 -d';'"
