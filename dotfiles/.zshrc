@@ -32,7 +32,7 @@ colors
 
 # Movida para mostrar la bateria en el PROMPT
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%'
-RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}$(/$ZSH/func/batterycharge.sh)%  💻'
+RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}$(~/.zsh/func/batterycharge.sh)%  💻'
 
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -143,8 +143,7 @@ alias canary="open -a /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Go
 alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security --user-data-dir"
 
 # Pomodoro
-alias pomostart="source $ZSH/func/pomodoro.sh -e start"
-alias pomoend="source $ZSH/func/pomodoro-end.sh -c"
+alias pomostart="source ~/.zsh/func/pomodoro.sh -e start"
 
 # KWM
 alias kwmStart="brew services start kwm"
@@ -154,230 +153,11 @@ alias kwmconfig="open -a 'Sublime Text' /usr/local/Cellar/kwm/4.0.2/kwmrc"
 # Obtener la previsión del tiempo
 alias tiempo="curl wttr.in/zaragoza"
 
-# Funciones que uso a menudo
-
-# Listando directorios. Gracias a http://twitter.com/wesbos
-function t() {
-  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-}
-# function t(){
-#   tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst --filelimit 15 -L ${1:-3} -aC $2
-# }
-
-# Creando un directorito y entrando en el
-function folder() {
-  mkdir -p "$@" && cd "$_";
-}
-
-# function to list the git repos with status
-## https://github.com/eckelon/dotfiles/blob/0c0d0fe5dc7cdef7e52e83c8bf0c6fbea408bbec/zshrc#L29-L35
-
-function gitls() {
-    for d in *; do
-        if [[ -d "$d" && -e "$d/.git" ]]; then
-            echo "$d -> $(cd "$d" && git_prompt_info | sed 's/%//g;s/{//g;s/}//g')"
-        fi
-    done
-}
-
-## Reboot
-## http://stackoverflow.com/questions/495323/quit-all-applications-using-applescript
-## Modificado el script para que al lanzar el comando no cierre iTerm. Incluímos un mensaje para saber que script hemos ejecutado
-function reiniciar() {
-  osascript -e '
-  tell application "System Events" to set the visible of every process to true
-  set white_list to {"Finder", "iTerm2"}
-  try
-    tell application "Finder"
-      set process_list to the name of every process whose visible is true
-    end tell
-    repeat with i from 1 to (number of items in process_list)
-      set this_process to item i of the process_list
-      if this_process is not in white_list then
-        tell application this_process
-          quit
-        end tell
-      end if
-    end repeat
-  end try
-  display notification "Reiniciando... 🚀" with title "Empezamos de nuevo!"
-  do shell script "/bin/sleep 5"
-  tell application "System Events" to restart'
-}
-
-## Shutdown
-## http://stackoverflow.com/questions/495323/quit-all-applications-using-applescript
-## Modificado el script. Incluímos un mensaje para saber que script hemos ejecutado
-
-function apagar() {
-  osascript -e '
-  tell application "System Events" to set the visible of every process to true
-  set white_list to {"Finder", "iTerm2"}
-  try
-    tell application "Finder"
-      set process_list to the name of every process whose visible is true
-    end tell
-    repeat with i from 1 to (number of items in process_list)
-      set this_process to item i of the process_list
-      if this_process is not in white_list then
-        tell application this_process
-          quit
-        end tell
-      end if
-    end repeat
-  end try
-  display notification "Apagando 🚨" with title "Adios!"
-  do shell script "/bin/sleep 3"
-  tell app "System Events" to shut down'
-}
-
-# LOCURON! Abriendo apps con applescript y pasandole comandos para centrarlas con ShiftIt. No apto para losers que trabajan con las aplicaciones a full screen
-
-function trabajo() {
-  osascript -e '
-  tell application "Mail" to activate
-  tell application "Opera" to activate
-  tell application "ShiftIt" to activate
-  tell application "System Events"
-    keystroke "p" using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
-  end tell
-  tell application "Slack" to activate
-  tell application "ShiftIt" to activate
-  tell application "System Events"
-    keystroke "," using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
-  end tell
-  tell application "Sublime Text" to activate
-  tell application "ShiftIt" to activate
-  tell application "System Events"
-    keystroke "," using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
-  end tell
-  tell application "iTerm2" to activate
-  tell application "ShiftIt" to activate
-  tell application "System Events"
-    keystroke "n" using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
-  end tell'
-}
-
-
-# tell application "System Events"
-#   activate
-#   get name of every desktop
-#   set DesktopNames to name of every desktop
-# end tell
-# DesktopNames
-
-# Creando estructura de directorios y archivos para iniciar un proyecto desde cero
-function initcss() {
-  mkdir $1 &&
-  cd $1 &&
-  mkdir css src js img &&
-  touch .gitignore &&
-  echo node_modules > .gitignore &&
-  curl -O "https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/{.stylelintrc,package.json,gulpfile.js}" &&
-  touch index.html &&
-  cd src &&
-  mkdir css img js &&
-  cd css &&
-  curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
-  mv normalize.css _reset.css &&
-  touch _variables.css &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/styles.css
-  cd ../js &&
-  touch index.js &&
-  cd .. &&
-  cd .. &&
-  git init &&
-  git add . &&
-  git commit -m 'estructura creada' &&
-  npm i &&
-  git commit -m 'dependencias instaladas' &&
-  npm-check -u &&
-  osascript -e'
-  display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
-}
-
-#Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
-function initcss-wf() {
-  mkdir css src js img &&
-  touch .gitignore &&
-  echo node_modules > .gitignore &&
-  curl -O "https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/{.stylelintrc,package.json,gulpfile.js}" &&
-  touch index.html &&
-  cd src &&
-  mkdir css img js &&
-  cd css &&
-  mkdir base components layout pages &&
-  cd base &&
-  curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
-  mv normalize.css _reset.css &&
-  touch _variables.css &&
-  cd ../components &&
-  touch _{buttons,navigation}.css &&
-  cd ../layout &&
-  touch _{header,footer}.css &&
-  cd ../pages &&
-  touch _home.css &&
-  cd .. &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/styles.css
-  cd ../js &&
-  touch index.js &&
-  cd .. &&
-  cd .. &&
-  git init &&
-  git add . &&
-  git commit -m 'estructura creada' &&
-  npm i &&
-  sudo npm-check -u &&
-  osascript -e 'display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
-}
-
-### Theme night Tweetbot
-
-function tweetbotNight() {
-  cd /Applications/Tweetbot.app/Contents/Resources &&
-  sudo rm -rf Colors.plist &&
-  curl -O "https://raw.githubusercontent.com/lucifr/Tweetbot-for-Mac-ColorScheme/master/Night/Colors.plist" &&
-  osascript -e '
-  tell application "Tweetbot" to quit
-  tell application "Tweetbot" to activate
-  '
-}
-
-
-### En Aragonés alcorzar es lo mismo que atajar en castellano. Esta función abre Helium y la web donde alojo todos los atajos de teclado útiles pero que no uso con la suficiente frecuencia.
-function alcorze() {
-  open -a Helium &&
-  osascript -e '
-  tell application "Helium" to activate
-  tell application "System Events"
-    click menu item “Location” of menu 1 of menu bar item “Open Web Url” of menu bar 1
-  end tell
-  '
-}
-
-function stproject() {
-  subl --newwindow;
-  subl --projects "$1"
-}
-
-
-# Alias maquinas infernales con Güindows - IE9 to Edge
-function vie() {
-  ##osascript -e 'tell application "VirtualBox" to activate' &&
-  VBoxManage startvm "$@"
-}
-
-function vieOff() {
-  VBoxManage controlvm "$@" acpipowerbutton
-}
-
 ##Elimina del historial los comandos duplicados
 export HISTCONTROL=ignoreboth:erasedups
 
+# Cargando todas las funciones
+source ~/.zsh/func/functions.zsh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -402,16 +182,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-source $ZSH/func/zsh-syntax-highlighting.zsh
+source ~/.zsh/func/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-
-export PATH="$HOME/.yarn/bin:$PATH"
-
-
-# Movidas de GO!
-# don't forget to change your path correctly!
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
