@@ -14,6 +14,7 @@ function gostart() {
         tell application "Slack" to activate
         tell application "Sublime Text" to activate
       '
+    open -a terminal-notifier --args -message "A trabajar!" -title "⚒" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
   fi
 
 }
