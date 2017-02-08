@@ -1,4 +1,4 @@
-function gostart() {
+function buendia() {
 
   if [[ $(date +%u) -gt 5 ]] ;
     then
