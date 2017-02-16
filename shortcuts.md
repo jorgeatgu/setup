@@ -1,8 +1,8 @@
 ## Sublime
 
-⌃ + ⇧ + ↑ = cursor extra arriba
+alt + ⌘ + ↑ = cursor extra arriba
 
-⌃ + ⇧ + ↓ = cursor extra abajo
+alt + ⌘ + ↓ = cursor extra abajo
 
 ⌃ + ⌘ + G = seleccionar todos los iguales
 

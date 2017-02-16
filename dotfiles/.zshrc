@@ -92,6 +92,7 @@ alias jekylls="sudo jekyll serve"
 alias jsd="jekyll serve drafts"
 
 # OSX
+alias copypath= "pwd | pbcopy"
 alias opera="/Applications/Opera.app/Contents/MacOS/Opera"
 alias operacache="sudo rm -rf ~/Library/Caches/com.operasoftware.Opera/Cache"
 alias ocultararchivos="defaults write com.apple.finder AppleShowAllFiles FALSE;killall Finder"
@@ -151,7 +152,7 @@ alias kwmStop="brew services stop kwm"
 alias kwmconfig="open -a 'Sublime Text' /usr/local/Cellar/kwm/4.0.2/kwmrc"
 
 # Obtener la previsión del tiempo
-alias tiempo="curl wttr.in/zaragoza"
+alias tiempo="curl -H 'Accept-Language: es' wttr.in/Zaragoza"
 
 ##Elimina del historial los comandos duplicados
 export HISTCONTROL=ignoreboth:erasedups
