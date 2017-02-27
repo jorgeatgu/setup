@@ -9,7 +9,7 @@ function buendia() {
       '
     else
       osascript -e '
-        tell application "Spark" to activate
+        tell application "Mail" to activate
         tell application "Opera" to activate
         tell application "Slack" to activate
         tell application "Sublime Text" to activate
