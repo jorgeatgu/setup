@@ -16,7 +16,7 @@ zplug "zsh-users/zsh-history-substring-search"
 # after executing compinit command and sourcing other plugins
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 zplug "b4b4r07/emoji-cli"
-zplug "b4b4r07/enhancd"
+zplug "b4b4r07/enhancd", use:init.sh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -173,7 +173,7 @@ source ~/.pm/pm.sh
 source ~/z/z.sh
 
 # Enhancd plugin para dar superpoderes al CD
-source ~/enhancd/enhancd.sh
+source ~/enhancd/init.sh
 
 # Emoji terminal
 source ~/emoji-cli/emoji-cli.plugin.zsh
