@@ -12,7 +12,8 @@
   ],
   "author": "Jorge Aznar",
   "scripts": {
-    "server-on": "browser-sync start --server --files '*.css, *.html' --tunnel jorgeatgu"
+    "server-on": "browser-sync start --server --files '*.css, *.html' --tunnel jorgeatgu",
+    "lint-staged": "lint-staged"
   },
   "license": "MIT",
   "devDependencies": {
@@ -20,13 +21,14 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^3.1.1",
+    "gulp-imagemin": "^3.2.0",
     "gulp-newer": "^1.3.0",
     "gulp-notify": "^3.0.0",
-    "gulp-postcss": "^6.3.0",
+    "gulp-postcss": "^6.4.0",
     "gulp-smoosher": "0.0.9",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^2.1.0",
+    "gulp-sourcemaps": "^2.5.0",
+    "gulp-uglify": "^2.1.2",
+    "lint-staged": "^3.4.0",
     "postcss-custom-properties": "^5.0.2",
     "postcss-custom-selectors": "^3.0.0",
     "postcss-import": "^9.1.0",
@@ -34,6 +36,11 @@
     "postcss-pxtorem": "^4.0.0",
     "postcss-reporter": "^3.0.0",
     "postcss-sorting": "^2.0.1",
+    "pre-commit": "^1.2.2",
     "stylelint": "^7.9.0"
-  }
+  },
+  "lint-staged": {
+   "*.css": "stylelint"
+  },
+  "pre-commit": "lint-staged"
 }
