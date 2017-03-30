@@ -281,3 +281,10 @@ function cleanMacOS() {
     do shell script "/bin/sleep 3"
     tell application "System Events" to restart'
 }
+
+
+function retina() {
+    Retina=system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'
+    echo Retina
+    # if [ "$Retina" != "true" ];
+}
