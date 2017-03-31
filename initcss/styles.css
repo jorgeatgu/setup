@@ -1,8 +1,0 @@
-/*
-  Base CSS por Jorge Aznar
-  http://jorgeatgu.com
-  Estructura básica para iniciar cualquier proyecto con postCSS
-*/
-
-@import '_reset';
-@import '_variables';
