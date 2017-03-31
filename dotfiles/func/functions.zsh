@@ -41,7 +41,7 @@ function initcss() {
   mkdir css src js img &&
   touch .gitignore &&
   echo node_modules > .gitignore &&
-  curl -O "https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/{.stylelintrc,package.json,gulpfile.js}" &&
+  curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,package.json,gulpfile.js}" &&
   touch index.html &&
   cd src &&
   mkdir css img js &&
@@ -49,7 +49,7 @@ function initcss() {
   curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
   mv normalize.css _reset.css &&
   touch _variables.css &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/styles.css
+  curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
   cd ../js &&
   touch index.js &&
   cd .. &&
@@ -64,39 +64,32 @@ function initcss() {
   display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
-#Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
+# Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
 function initcss-wf() {
-  mkdir css src js img &&
-  touch .gitignore &&
-  echo node_modules > .gitignore &&
-  curl -O "https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/{.stylelintrc,package.json,gulpfile.js}" &&
-  touch index.html &&
-  cd src &&
-  mkdir css img js &&
-  cd css &&
-  mkdir base components layout pages &&
-  cd base &&
-  curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
-  mv normalize.css _reset.css &&
-  touch _variables.css &&
-  cd ../components &&
-  touch _{buttons,navigation}.css &&
-  cd ../layout &&
-  touch _{header,footer}.css &&
-  cd ../pages &&
-  touch _home.css &&
-  cd .. &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/setup/master/initcss/styles.css
-  cd ../js &&
-  touch index.js &&
-  cd .. &&
-  cd .. &&
-  git init &&
-  git add . &&
-  git commit -m 'estructura creada' &&
-  npm i &&
-  sudo npm-check -u &&
-  osascript -e 'display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
+    mkdir css src js img &&
+    touch .gitignore &&
+    echo node_modules > .gitignore &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,package.json,gulpfile.js}" &&
+    touch index.html &&
+    cd src &&
+    mkdir css img js &&
+    cd css &&
+    curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
+    mv normalize.css _reset.css &&
+    touch _variables.css &&
+    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
+    cd ../js &&
+    touch index.js &&
+    cd .. &&
+    cd .. &&
+    git init &&
+    git add . &&
+    git commit -m 'estructura creada' &&
+    npm i &&
+    git commit -m 'dependencias instaladas' &&
+    npm-check -u &&
+    osascript -e'
+    display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
 ### Theme night Tweetbot
