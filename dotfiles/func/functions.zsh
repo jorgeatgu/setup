@@ -300,8 +300,9 @@ function inlineCSS () {
 
     if [ "$size" -le "$sizeM" ];
         then
-        `npm run inline:css`
+        npm run inline:css &&
+        open -a terminal-notifier --args -message "CSS style inline!!" -title "🤓" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
     else
-        echo 'Tu CSS ocupa más de 50kb, deberías revisarlo'
+        open -a terminal-notifier --args -message "Tu CSS ocupa más de 50Kb, algo estás haciendo mal" -title "🙄" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
     fi
 }
