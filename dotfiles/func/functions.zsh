@@ -66,8 +66,8 @@ function initcss() {
 
 # Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
 function initcss-wf() {
-    mkdir css src js img &&
-    touch .gitignore &&
+  mkdir css src js img &&
+  touch .gitignore &&
     echo node_modules > .gitignore &&
     curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,package.json,gulpfile.js}" &&
     touch index.html &&
@@ -147,7 +147,7 @@ function reiniciar() {
       set this_process to item i of the process_list
       if this_process is not in white_list then
         tell application this_process
-          quit
+          quit application
         end tell
       end if
     end repeat
@@ -173,7 +173,7 @@ function apagar() {
       set this_process to item i of the process_list
       if this_process is not in white_list then
         tell application this_process
-          quit
+          quit application
         end tell
       end if
     end repeat
@@ -276,8 +276,32 @@ function cleanMacOS() {
 }
 
 
-function retina() {
-    Retina=system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'
-    echo Retina
-    # if [ "$Retina" != "true" ];
+# function retina() {
+#     Retina="system_profiler SPDisplaysDataType | awk '/Resolution/{print $2}'"
+#     sublime="/Users/jorgeatgu/Library/Application Support/Sublime Text 3/Packages/User"
+#     antialias=""font_options"                 : [ "gray_antialias","
+#         if [ "$Retina" = "2560" ];
+#             then
+#             cd "$sublime" &&
+#             sed -i '' '6i\
+#             $antialias' Preferences.sublime-settings
+#         fi
+#     # else
+#     #     cd "$sublime" &&
+#     #     sed -ie 's/"font_options"/#"font_options"/g' Preferences.sublime-settings
+#     fi
+# }
+
+function inlineCSS () {
+    #Si tu CSS ocupa menos de 50kb deberías de incluirlo en una etiqueta <style>, recomendación de Google en AMP.
+    sizeM="50000"
+    #Obtenemos el tamaño en bytes de nuestro archivo CSS
+    size=`stat -x css/styles.css | grep Size: | awk '{ print $2 }'`
+
+    if [ "$size" -le "$sizeM" ];
+        then
+        `npm run inline:css`
+    else
+        echo 'Tu CSS ocupa más de 50kb, deberías revisarlo'
+    fi
 }
