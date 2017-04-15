@@ -2,20 +2,20 @@ function buendia() {
 
   if [[ $(date +%u) -gt 5 ]] ;
     then
-      echo 'Es finde, tomatelo con calma'
-      osascript -e '
-      tell application "Spark" to activate
-      tell application "Opera" to activate
-      '
-    else
-      osascript -e '
-        tell application "Mail" to activate
-        tell application "Opera" to activate
-        tell application "Slack" to activate
-        tell application "Sublime Text" to activate
-      '
-    open -a terminal-notifier --args -message "A trabajar!" -title "⚒" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
-  fi
+    echo 'Es finde, tomatelo con calma'
+    osascript -e '
+    tell application "Spark" to activate
+    tell application "Opera" to activate
+    '
+else
+  osascript -e '
+  tell application "Mail" to activate
+  tell application "Opera" to activate
+  tell application "Slack" to activate
+  tell application "Sublime Text" to activate
+  '
+  open -a terminal-notifier --args -message "A trabajar!" -title "⚒" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
+fi
 
 }
 
@@ -36,41 +36,35 @@ function stproject() {
 
 # Creando estructura de directorios y archivos para iniciar un proyecto desde cero
 function initcss() {
-  mkdir $1 &&
-  cd $1 &&
-  mkdir css src js img &&
-  touch .gitignore &&
-  echo node_modules > .gitignore &&
-  curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,package.json,gulpfile.js}" &&
-  touch index.html &&
-  cd src &&
-  mkdir css img js &&
-  cd css &&
-  curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
-  mv normalize.css _reset.css &&
-  touch _variables.css &&
-  curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
-  cd ../js &&
-  touch index.js &&
-  cd .. &&
-  cd .. &&
-  git init &&
-  git add . &&
-  git commit -m 'estructura creada' &&
-  npm i &&
-  git commit -m 'dependencias instaladas' &&
-  npm-check -u &&
-  osascript -e'
-  display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
+    mkdir $1 &&
+    cd $1 &&
+    mkdir css src js img &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html}" &&
+    cd src &&
+    mkdir css img js &&
+    cd css &&
+    curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
+    mv normalize.css _reset.css &&
+    touch _variables.css &&
+    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
+    cd ../js &&
+    touch index.js &&
+    cd .. &&
+    cd .. &&
+    git init &&
+    git add . &&
+    git commit -m 'estructura creada' &&
+    npm i &&
+    git commit -m 'dependencias instaladas' &&
+    npm-check -u &&
+    osascript -e'
+    display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
 }
 
 # Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
 function initcss-wf() {
-  mkdir css src js img &&
-  touch .gitignore &&
-    echo node_modules > .gitignore &&
-    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,package.json,gulpfile.js}" &&
-    touch index.html &&
+    mkdir css src js img &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html}" &&
     cd src &&
     mkdir css img js &&
     cd css &&
@@ -111,7 +105,7 @@ function alcorze() {
   osascript -e '
   tell application "Helium" to activate
   tell application "System Events"
-    click menu item “Location” of menu 1 of menu bar item “Open Web Url” of menu bar 1
+  click menu item “Location” of menu 1 of menu bar item “Open Web Url” of menu bar 1
   end tell
   '
 }
@@ -140,21 +134,21 @@ function reiniciar() {
   tell application "System Events" to set the visible of every process to true
   set white_list to {"Finder", "iTerm2"}
   try
-    tell application "Finder"
-      set process_list to the name of every process whose visible is true
+  tell application "Finder"
+  set process_list to the name of every process whose visible is true
+  end tell
+  repeat with i from 1 to (number of items in process_list)
+  set this_process to item i of the process_list
+  if this_process is not in white_list then
+    tell application this_process
+    quit application
     end tell
-    repeat with i from 1 to (number of items in process_list)
-      set this_process to item i of the process_list
-      if this_process is not in white_list then
-        tell application this_process
-          quit application
-        end tell
-      end if
+    end if
     end repeat
-  end try
-  display notification "Reiniciando... 🚀" with title "Empezamos de nuevo!"
-  do shell script "/bin/sleep 5"
-  tell application "System Events" to restart'
+    end try
+    display notification "Reiniciando... 🚀" with title "Empezamos de nuevo!"
+    do shell script "/bin/sleep 5"
+    tell application "System Events" to restart'
 }
 
 ## Shutdown
@@ -166,21 +160,21 @@ function apagar() {
   tell application "System Events" to set the visible of every process to true
   set white_list to {"Finder", "iTerm2"}
   try
-    tell application "Finder"
-      set process_list to the name of every process whose visible is true
+  tell application "Finder"
+  set process_list to the name of every process whose visible is true
+  end tell
+  repeat with i from 1 to (number of items in process_list)
+  set this_process to item i of the process_list
+  if this_process is not in white_list then
+    tell application this_process
+    quit application
     end tell
-    repeat with i from 1 to (number of items in process_list)
-      set this_process to item i of the process_list
-      if this_process is not in white_list then
-        tell application this_process
-          quit application
-        end tell
-      end if
+    end if
     end repeat
-  end try
-  display notification "Apagando 🚨" with title "Adios!"
-  do shell script "/bin/sleep 3"
-  tell app "System Events" to shut down'
+    end try
+    display notification "Apagando 🚨" with title "Adios!"
+    do shell script "/bin/sleep 3"
+    tell app "System Events" to shut down'
 }
 
 # LOCURON! Abriendo apps con applescript y pasandole comandos para centrarlas con ShiftIt. No apto para losers que trabajan con las aplicaciones a full screen
@@ -191,26 +185,26 @@ function trabajo() {
   tell application "Opera" to activate
   tell application "ShiftIt" to activate
   tell application "System Events"
-    keystroke "p" using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
+  keystroke "p" using {control down, option down, command down}
+  keystroke "c" using {control down, option down, command down}
   end tell
   tell application "Slack" to activate
   tell application "ShiftIt" to activate
   tell application "System Events"
-    keystroke "," using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
+  keystroke "," using {control down, option down, command down}
+  keystroke "c" using {control down, option down, command down}
   end tell
   tell application "Sublime Text" to activate
   tell application "ShiftIt" to activate
   tell application "System Events"
-    keystroke "," using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
+  keystroke "," using {control down, option down, command down}
+  keystroke "c" using {control down, option down, command down}
   end tell
   tell application "iTerm2" to activate
   tell application "ShiftIt" to activate
   tell application "System Events"
-    keystroke "n" using {control down, option down, command down}
-    keystroke "c" using {control down, option down, command down}
+  keystroke "n" using {control down, option down, command down}
+  keystroke "c" using {control down, option down, command down}
   end tell'
 }
 
@@ -225,39 +219,39 @@ function pomostart() {
   # aplicaciones con las que producimos
 
   osascript -e '
-    tell application "System Events" to set the visible of every process to true
-    set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera"}
-    try
-      tell application "Finder"
-        set process_list to the name of every process whose visible is true
+  tell application "System Events" to set the visible of every process to true
+  set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera"}
+  try
+  tell application "Finder"
+  set process_list to the name of every process whose visible is true
+  end tell
+  repeat with i from 1 to (number of items in process_list)
+  set this_process to item i of the process_list
+  if this_process is not in white_list then
+      tell application this_process
+      quit
       end tell
-      repeat with i from 1 to (number of items in process_list)
-        set this_process to item i of the process_list
-        if this_process is not in white_list then
-          tell application this_process
-            quit
-          end tell
-        end if
+      end if
       end repeat
-    end try
-    tell application "Sublime Text" to activate
-    tell application "iTerm2" to activate
-    tell application "Opera" to activate
-    tell application "Spotify" to activate
-    delay 3
-    tell application "Spotify" to play
-    tell application "My Pomodoro"
-    if it is running then
-      display notification "Pomodoro 🍅 ya esta abierto" with title "A currar!"
-    else
-      activate
-    end if
-    end tell
-  '
+      end try
+      tell application "Sublime Text" to activate
+      tell application "iTerm2" to activate
+      tell application "Opera" to activate
+      tell application "Spotify" to activate
+      delay 3
+      tell application "Spotify" to play
+      tell application "My Pomodoro"
+      if it is running then
+          display notification "Pomodoro 🍅 ya esta abierto" with title "A currar!"
+      else
+          activate
+          end if
+          end tell
+          '
 
-  open -a terminal-notifier --args -message "A trabajar!" -title "🍅" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
+          open -a terminal-notifier --args -message "A trabajar!" -title "🍅" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
 
-}
+      }
 
 # Tareas de mantenimiento del Mac
 # http://www.faq-mac.com/2016/12/empieza-el-ano-creando-una-rutina-de-mantenimiento-tu-mac/
