@@ -334,3 +334,85 @@ function replaceCSSInline() {
     ' index.html
 
 }
+
+
+function spotifyList () {
+
+    osascript -e '
+    set volume output volume 100
+    set spotifyList to {"synthWave", "modernosDePueblo", "futurecop", "trainspotting", "Nils & Olafur", "NWA"}
+
+    choose from list spotifyList with prompt "¿Que lista quieres escuchar? 🎼" default items "None" OK button name {"Play! 🎧"} cancel button name {"Ninguna 😞"}
+    set listchoice to result as text
+
+    set synthWave to "spotify:user:megabeat:playlist:3Ay5tPYcSmt1dkfCk6mQLN"
+    set modernosDePueblo to "spotify:user:megabeat:playlist:0hh6Jh9zOtgWGE7NFZytWk"
+    set futurecop to "spotify:user:futurecop%21:playlist:53G6ZiWHh4m36x5og4PPku"
+    set trainspotting to "spotify:user:mattiasknutson:playlist:15waV9BcHVoigwPGm0KCkM"
+    set NilsOlafur to "spotify:user:megabeat:playlist:0Wodg3U7JIPzEGU8ZY5HsO"
+    set NWA to "spotify:user:nwaspotify:playlist:5pO8tZWVXqmTizMZ0WoAIX"
+
+
+    if listchoice is equal to "synthWave" then
+
+        tell application "Spotify"
+            launch
+            delay 2
+            set sound volume to 100
+            play track synthWave
+        end tell
+        display notification "Synthwave artists, influenced by nostalgia and fantasy" with title "🎼 🎧"
+    end if
+
+
+    if listchoice is equal to "modernosDePueblo" then
+        tell application "Spotify"
+            launch
+            delay 2
+            set sound volume to 100
+            play track modernosDePueblo
+        end tell
+        display notification "Modernos de PUEBLO" with title " 🎼 🎧"
+    end if
+
+    if listchoice is equal to "futurecop" then
+        tell application "Spotify"
+            launch
+            delay 2
+            set sound volume to 100
+            play track futurecop
+        end tell
+        display notification "Futurecop" with title "🎼 🎧"
+    end if
+
+    if listchoice is equal to "trainspotting" then
+        tell application "Spotify"
+            launch
+            delay 2
+            set sound volume to 100
+            play track trainspotting
+        end tell
+        display notification "Trainspotting BSO 🚞" with title "🎼 🎧"
+    end if
+
+    if listchoice is equal to "NilsOlafur" then
+        tell application "Spotify"
+            launch
+            delay 2
+            set sound volume to 100
+            play track NilsOlafur
+        end tell
+        display notification "Nils Frahm & Olafur Arnalds 🎻🎹" with title "🎼 🎧"
+    end if
+
+    if listchoice is equal to "NWA" then
+        tell application "Spotify"
+            launch
+            delay 2
+            set sound volume to 100
+            play track NWA
+        end tell
+        display notification "Straight Outta Compton BSO 🖕🏻👮🖕🏻" with title "🎼 🎧"
+    end if'
+
+}
