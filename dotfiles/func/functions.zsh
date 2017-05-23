@@ -340,7 +340,7 @@ function spotifyList () {
 
     osascript -e '
     set volume output volume 100
-    set spotifyList to {"synthWave", "modernosDePueblo", "futurecop", "trainspotting", "Nils & Olafur", "NWA"}
+    set spotifyList to {"synthWave", "modernosDePueblo", "futurecop", "trainspotting", "Nils&Olafur", "NWA"}
 
     choose from list spotifyList with prompt "¿Que lista quieres escuchar? 🎼" default items "None" OK button name {"Play! 🎧"} cancel button name {"Ninguna 😞"}
     set listchoice to result as text
@@ -358,7 +358,6 @@ function spotifyList () {
         tell application "Spotify"
             launch
             delay 2
-            set sound volume to 100
             play track synthWave
         end tell
         display notification "Synthwave artists, influenced by nostalgia and fantasy" with title "🎼 🎧"
@@ -369,7 +368,6 @@ function spotifyList () {
         tell application "Spotify"
             launch
             delay 2
-            set sound volume to 100
             play track modernosDePueblo
         end tell
         display notification "Modernos de PUEBLO" with title " 🎼 🎧"
@@ -379,7 +377,6 @@ function spotifyList () {
         tell application "Spotify"
             launch
             delay 2
-            set sound volume to 100
             play track futurecop
         end tell
         display notification "Futurecop" with title "🎼 🎧"
@@ -389,17 +386,15 @@ function spotifyList () {
         tell application "Spotify"
             launch
             delay 2
-            set sound volume to 100
             play track trainspotting
         end tell
         display notification "Trainspotting BSO 🚞" with title "🎼 🎧"
     end if
 
-    if listchoice is equal to "NilsOlafur" then
+    if listchoice is equal to "Nils&Olafur" then
         tell application "Spotify"
             launch
             delay 2
-            set sound volume to 100
             play track NilsOlafur
         end tell
         display notification "Nils Frahm & Olafur Arnalds 🎻🎹" with title "🎼 🎧"
@@ -409,7 +404,6 @@ function spotifyList () {
         tell application "Spotify"
             launch
             delay 2
-            set sound volume to 100
             play track NWA
         end tell
         display notification "Straight Outta Compton BSO 🖕🏻👮🖕🏻" with title "🎼 🎧"
