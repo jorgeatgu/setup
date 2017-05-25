@@ -148,15 +148,16 @@ function reiniciar() {
     end repeat
     end try
     repeat
-       try
-           set SAS to (path to library folder from user domain as text) & "Saved Application State:"
-           exit repeat
-       on error
-           delay 0.1
-       end try
+        try
+            set SAS to ":Users:jorgeatgu:library:Saved Application State"
+            exit repeat
+        on error
+            delay 0.1
+        end try
     end repeat
     tell application "System Events" to tell folder SAS
-       delete every folder
+        delete every file
+        delete every folder
     end tell
     display notification "Reiniciando... 🚀" with title "Empezamos de nuevo!"
     do shell script "/bin/sleep 5"
@@ -339,18 +340,21 @@ function replaceCSSInline() {
 function spotifyList () {
 
     osascript -e '
-    set volume output volume 100
-    set spotifyList to {"synthWave", "modernosDePueblo", "futurecop", "trainspotting", "Nils&Olafur", "NWA"}
 
-    choose from list spotifyList with prompt "¿Que lista quieres escuchar? 🎼" default items "None" OK button name {"Play! 🎧"} cancel button name {"Ninguna 😞"}
-    set listchoice to result as text
+    tell application "System Events"
+        activate
+        set volume output volume 100
+        set spotifyList to {"synthWave", "modernosDePueblo", "futurecop", "trainspotting", "Nils&Olafur", "NWA"}
+        choose from list spotifyList with prompt "¿Que lista quieres escuchar? 🎼" default items "None" OK button name {"Play! 🎧"} cancel button name {"Ninguna 😞"} without empty selection allowed
+        set listchoice to result as text
 
-    set synthWave to "spotify:user:megabeat:playlist:3Ay5tPYcSmt1dkfCk6mQLN"
-    set modernosDePueblo to "spotify:user:megabeat:playlist:0hh6Jh9zOtgWGE7NFZytWk"
-    set futurecop to "spotify:user:futurecop%21:playlist:53G6ZiWHh4m36x5og4PPku"
-    set trainspotting to "spotify:user:mattiasknutson:playlist:15waV9BcHVoigwPGm0KCkM"
-    set NilsOlafur to "spotify:user:megabeat:playlist:0Wodg3U7JIPzEGU8ZY5HsO"
-    set NWA to "spotify:user:nwaspotify:playlist:5pO8tZWVXqmTizMZ0WoAIX"
+        set synthWave to "spotify:user:megabeat:playlist:3Ay5tPYcSmt1dkfCk6mQLN"
+        set modernosDePueblo to "spotify:user:megabeat:playlist:0hh6Jh9zOtgWGE7NFZytWk"
+        set futurecop to "spotify:user:futurecop%21:playlist:53G6ZiWHh4m36x5og4PPku"
+        set trainspotting to "spotify:user:mattiasknutson:playlist:15waV9BcHVoigwPGm0KCkM"
+        set NilsOlafur to "spotify:user:megabeat:playlist:0Wodg3U7JIPzEGU8ZY5HsO"
+        set NWA to "spotify:user:nwaspotify:playlist:5pO8tZWVXqmTizMZ0WoAIX"
+    end tell
 
 
     if listchoice is equal to "synthWave" then
@@ -361,52 +365,47 @@ function spotifyList () {
             play track synthWave
         end tell
         display notification "Synthwave artists, influenced by nostalgia and fantasy" with title "🎼 🎧"
-    end if
 
-
-    if listchoice is equal to "modernosDePueblo" then
+    else if listchoice is equal to "modernosDePueblo" then
         tell application "Spotify"
             launch
             delay 2
             play track modernosDePueblo
         end tell
         display notification "Modernos de PUEBLO" with title " 🎼 🎧"
-    end if
 
-    if listchoice is equal to "futurecop" then
+    else if listchoice is equal to "futurecop" then
         tell application "Spotify"
             launch
             delay 2
             play track futurecop
         end tell
         display notification "Futurecop" with title "🎼 🎧"
-    end if
 
-    if listchoice is equal to "trainspotting" then
+    else if listchoice is equal to "trainspotting" then
         tell application "Spotify"
             launch
             delay 2
             play track trainspotting
         end tell
         display notification "Trainspotting BSO 🚞" with title "🎼 🎧"
-    end if
 
-    if listchoice is equal to "Nils&Olafur" then
+    else if listchoice is equal to "Nils&Olafur" then
         tell application "Spotify"
             launch
             delay 2
             play track NilsOlafur
         end tell
         display notification "Nils Frahm & Olafur Arnalds 🎻🎹" with title "🎼 🎧"
-    end if
 
-    if listchoice is equal to "NWA" then
+    else if listchoice is equal to "NWA" then
         tell application "Spotify"
             launch
             delay 2
             play track NWA
         end tell
         display notification "Straight Outta Compton BSO 🖕🏻👮🖕🏻" with title "🎼 🎧"
-    end if'
+    end if
+    end'
 
 }
