@@ -44,7 +44,7 @@ function initcss() {
     mkdir css img js &&
     cd css &&
     curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
-    mv normalize.css _reset.css &&
+    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/_variables.css &&
     touch _variables.css &&
     curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
     cd ../js &&
@@ -69,7 +69,7 @@ function initcss-wf() {
     mkdir css img js &&
     cd css &&
     curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
-    mv normalize.css _reset.css &&
+    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/_variables.css &&
     touch _variables.css &&
     curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
     cd ../js &&
