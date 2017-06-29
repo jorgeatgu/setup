@@ -44,8 +44,8 @@ function initcss() {
     mkdir css img js &&
     cd css &&
     curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
+    mv normalize.css _reset.css &&
     curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/_variables.css &&
-    touch _variables.css &&
     curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
     cd ../js &&
     touch index.js &&
@@ -69,8 +69,8 @@ function initcss-wf() {
     mkdir css img js &&
     cd css &&
     curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
+    mv normalize.css _reset.css &&
     curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/_variables.css &&
-    touch _variables.css &&
     curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
     cd ../js &&
     touch index.js &&
@@ -363,6 +363,9 @@ function spotifyList () {
             launch
             delay 2
             play track synthWave
+            repeat (random number from 1 to 15) times
+                next track
+            end repeat
         end tell
         display notification "Synthwave artists, influenced by nostalgia and fantasy" with title "🎼 🎧"
 
@@ -408,4 +411,10 @@ function spotifyList () {
     end if
     end'
 
+}
+
+# Print Github username/repository from the current remote branch
+# https://gist.github.com/enten/0ece8e63282376e2a2df
+function printGitHuser() {
+    git remote -v | grep -e push | awk '{print $2}' | sed 's/https:\/\/github.com\///g' | sed 's/.git//g'
 }
