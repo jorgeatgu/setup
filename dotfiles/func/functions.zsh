@@ -39,14 +39,12 @@ function initcss() {
     mkdir $1 &&
     cd $1 &&
     mkdir css src js img &&
-    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html}" &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html,_variables.css,styles.css}" &&
     cd src &&
     mkdir css img js &&
     cd css &&
     curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
     mv normalize.css _reset.css &&
-    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/_variables.css &&
-    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
     cd ../js &&
     touch index.js &&
     cd .. &&
@@ -64,14 +62,12 @@ function initcss() {
 # Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
 function initcss-wf() {
     mkdir css src js img &&
-    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html}" &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html,_variables.css,styles.css}" &&
     cd src &&
     mkdir css img js &&
     cd css &&
     curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
     mv normalize.css _reset.css &&
-    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/_variables.css &&
-    curl -O https://raw.githubusercontent.com/jorgeatgu/base/master/styles.css
     cd ../js &&
     touch index.js &&
     cd .. &&
