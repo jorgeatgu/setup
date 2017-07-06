@@ -52,11 +52,13 @@ function initcss() {
     git init &&
     git add . &&
     git commit -m 'estructura creada' &&
+    echo -e '\e[94m\e[1mEsto va a costar un poco' &&
     npm i &&
     git commit -m 'dependencias instaladas' &&
     npm-check -u &&
-    osascript -e'
-    display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
+    echo -e '\e[94m\e[1mEl script ha terminado. Es hora de picar código! \U0001f913\n' &&
+    afplay /System/Library/Sounds/Submarine.aiff &&
+    say El script ha terminado. Es hora de picar código!
 }
 
 # Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
@@ -75,11 +77,13 @@ function initcss-wf() {
     git init &&
     git add . &&
     git commit -m 'estructura creada' &&
+    echo -e '\e[94m\e[1mEsto va a costar un poco' &&
     npm i &&
     git commit -m 'dependencias instaladas' &&
     npm-check -u &&
-    osascript -e'
-    display notification "A picar código! 🤓 ⚒" with title "InitCSS completado"'
+    echo -e '\e[94m\e[1mEl script ha terminado. Es hora de picar código! \U0001f913\n' &&
+    afplay /System/Library/Sounds/Submarine.aiff &&
+    say El script ha terminado. Es hora de picar código!
 }
 
 ### Theme night Tweetbot
