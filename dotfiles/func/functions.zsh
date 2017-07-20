@@ -39,7 +39,7 @@ function initcss() {
     mkdir $1 &&
     cd $1 &&
     mkdir css src js img &&
-    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html,_variables.css,styles.css}" &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.stylelintignore,package.json,gulpfile.js,index.html,_variables.css,styles.css}" &&
     cd src &&
     mkdir css img js &&
     cd css &&
@@ -64,7 +64,7 @@ function initcss() {
 # Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
 function initcss-wf() {
     mkdir css src js img &&
-    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.styelintignore,package.json,gulpfile.js,index.html,_variables.css,styles.css}" &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.stylelintignore,package.json,gulpfile.js,index.html,_variables.css,styles.css}" &&
     cd src &&
     mkdir css img js &&
     cd css &&
