@@ -341,10 +341,11 @@ function spotifyList () {
 
     osascript -e '
 
+
     tell application "System Events"
         activate
         set volume output volume 100
-        set spotifyList to {"synthWave", "modernosDePueblo", "futurecop", "trainspotting", "Nils&Olafur", "NWA"}
+        set spotifyList to {"synthWave", "modernosDePueblo", "futurecop", "trainspotting", "Nils&Olafur", "NWA", "Nada"}
         choose from list spotifyList with prompt "¿Que lista quieres escuchar? 🎼" default items "None" OK button name {"Play! 🎧"} cancel button name {"Ninguna 😞"} without empty selection allowed
         set listchoice to result as text
 
@@ -354,6 +355,7 @@ function spotifyList () {
         set trainspotting to "spotify:user:mattiasknutson:playlist:15waV9BcHVoigwPGm0KCkM"
         set NilsOlafur to "spotify:user:megabeat:playlist:0Wodg3U7JIPzEGU8ZY5HsO"
         set NWA to "spotify:user:nwaspotify:playlist:5pO8tZWVXqmTizMZ0WoAIX"
+        set Nada to missing value
     end tell
 
 
@@ -408,9 +410,14 @@ function spotifyList () {
             play track NWA
         end tell
         display notification "Straight Outta Compton BSO 🖕🏻👮🖕🏻" with title "🎼 🎧"
+    else if listchoice is equal to "Nada" then
+        tell application "Spotify"
+            launch
+            delay 2
+        end tell
+        display notification "Tu eliges" with title "🎼 🎧"
     end if
     end'
-
 }
 
 # Print Github username/repository from the current remote branch
