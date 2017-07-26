@@ -17,9 +17,7 @@ git init &&
 git add . &&
 git commit -m 'estructura creada' &&
 echo -e '\e[94m\e[1mEsto va a costar un poco' &&
-npm i &&
 git commit -m 'dependencias instaladas' &&
-npm-check -u &&
 echo -e '\e[94m\e[1mEl script ha terminado. Es hora de picar código! \U0001f913\n' &&
 afplay /System/Library/Sounds/Submarine.aiff &&
 say El script ha terminado. Es hora de picar código!
