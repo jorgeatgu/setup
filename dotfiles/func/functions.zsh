@@ -437,3 +437,7 @@ function initCSS() {
         say El script ha terminado. Es hora de picar código!
     fi
 }
+
+function randoma11 () {
+    open -a opera "http://randoma11y.com/#/?_k=avxbfc?hex=$@"
+}
