@@ -25,7 +25,7 @@ zplug "b4b4r07/enhancd", use:init.sh
 ZSH_THEME="ys"
 
 #Antiguo mensaje de bienvenida
-#$ZSH/func/welcome.sh -c
+$ZSH/func/welcome.sh -c
 
 autoload -U colors
 colors

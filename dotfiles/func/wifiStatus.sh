@@ -1,6 +1,12 @@
-if ping -q -c 1 -W 1 google.com >/dev/null; then
-  echo "Tenemos internet!"
+#!/bin/bash
+
+statusWifi=`networksetup -setairportpower en0 on`
+PURPLE='\033[00;35m'
+
+#Comprobamos si el wifi esta apagado. En caso de que devuelva off lo activamos
+if [ ! "$statusWifi" ]; then
+    networksetup -setairportpower en0 on
+    echo "${PURPLE} No hay internet, activamos el Wifi"
 else
-  echo "No hay internet, seguro que el wifi esta apagado"
-  networksetup -setairportpower en0 on
+    echo "${PURPLE} Tenemos internet!"
 fi
