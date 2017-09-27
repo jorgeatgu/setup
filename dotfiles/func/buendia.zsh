@@ -1,6 +1,6 @@
   #!/bin/bash
 
-  if [[ $(date +%u) -gt 5 && (8 <= 10#$H && 10#$H < 6) ]] ;
+  if [[ $(date +%u) -gt 5 ]] ;
     then
       echo 'No estas en el trabajo :)'
       osascript -e '
