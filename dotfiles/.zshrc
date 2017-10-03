@@ -110,6 +110,9 @@ alias remapkey="/Users/jorgeatgu/Downloads/EasyAVR-master/easykeymap.sh"
 alias papelera="sudo rm -rfv /Volumes/\*/.Trashes; sudo rm -rfv \$HOME/.Trash/; sudo rm -rfv /private/var/log/asl/\*.asl"
 alias spapelera="sudo srm -rfv /Volumes/\*/.Trashes; sudo srm -rfv \$HOME/.Trash/; sudo srm -rfv /private/var/log/asl/\*.asl"
 
+#Alias gulp
+alias guw="gulp watch"
+alias gu="gulp"
 
 #Generando un password y copiandolo en el portapapeles
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
