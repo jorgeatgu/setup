@@ -4,17 +4,15 @@ export ZSH=/Users/jorgeatgu/.oh-my-zsh
 export EDITOR='subl -w'
 export PATH="/usr/local/bin:/usr/local/bin/sublime:~/bin:$PATH"
 
-source ~/.zplug/zplug
-zplug "jorgeatgu/zplug"
+source ~/.zplug/init.zsh
 
 # Make sure you use double quotes
 zplug "zsh-users/zsh-history-substring-search"
 
-
 # Set priority to load command like a nice command
 # e.g., zsh-syntax-highlighting must be loaded
 # after executing compinit command and sourcing other plugins
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:10
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/enhancd", use:init.sh
 
@@ -25,14 +23,14 @@ zplug "b4b4r07/enhancd", use:init.sh
 ZSH_THEME="ys"
 
 #Antiguo mensaje de bienvenida
-$ZSH/func/welcome.sh -c
+#$ZSH/func/welcome.sh -c
 
 autoload -U colors
 colors
 
 # Movida para mostrar la bateria en el PROMPT
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%'
-RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}$(~/.zsh/func/batterycharge.sh)%  💻'
+RPROMPT='%{$fg[black]%}%{$fg_bold[yellow]%}%$(~/.oh-my-zsh/func/batterycharge.sh)% 💻'
 
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -52,7 +50,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github osx k emoji-cli alias-tips)
+plugins=(git github osx k emoji-cli alias-tips zsh-autosuggestions)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
@@ -60,12 +58,14 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/alias-tips/alias-tips.plugin.zsh
+
 # You may need to manually set your language environment
 export LANG=es_ES.UTF-8
 
 # Alias
-alias zshconfig="sublime ~/.zshrc"
-alias ohmyzsh="sublime ~/.oh-my-zsh"
+alias zshconfig="subl ~/.zshrc"
+alias ohmyzsh="subl ~/.oh-my-zsh"
 
 # Alias suffix
 alias -s git='git clone'
@@ -92,6 +92,8 @@ alias jekylls="sudo jekyll serve"
 alias jsd="jekyll serve drafts"
 
 # OSX
+alias focus="defaults write com.apple.dock single-app -bool true; killall Dock"
+alias focusOff="defaults write com.apple.dock single-app -bool false; killall Dock"
 alias copypath= "pwd | pbcopy"
 alias opera="/Applications/Opera.app/Contents/MacOS/Opera"
 alias operacache="sudo rm -rf ~/Library/Caches/com.operasoftware.Opera/Cache"
@@ -111,8 +113,8 @@ alias papelera="sudo rm -rfv /Volumes/\*/.Trashes; sudo rm -rfv \$HOME/.Trash/; 
 alias spapelera="sudo srm -rfv /Volumes/\*/.Trashes; sudo srm -rfv \$HOME/.Trash/; sudo srm -rfv /private/var/log/asl/\*.asl"
 
 #Alias gulp
-alias guw="gulp watch"
-alias gu="gulp"
+alias guw="gulp watch && subl"
+alias gu="gulp && subl"
 
 #Generando un password y copiandolo en el portapapeles
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
@@ -147,7 +149,7 @@ alias canary="open -a /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Go
 alias chrome="open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security --user-data-dir"
 
 # Pomodoro
-alias pomostart="source ~/.zsh/func/pomodoro.sh -e start"
+alias pomostart="source ~/.oh-my-zsh/func/pomodoro.sh -e start"
 
 # KWM
 alias kwmStart="brew services start kwm"
@@ -161,19 +163,10 @@ alias tiempo="curl -H 'Accept-Language: es' wttr.in/Zaragoza"
 export HISTCONTROL=ignoreboth:erasedups
 
 # Cargando todas las funciones
-source ~/.zsh/func/functions.zsh
+source ~/.oh-my-zsh/func/functions.zsh
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-#Autocompletando rutas infernales a base de sugerencias, no esta mal pero es mejor enhancd
-[[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
-
-# PM functions
-source ~/.pm/pm.sh
-
-# Z functions
-source ~/z/z.sh
 
 # Enhancd plugin para dar superpoderes al CD
 source ~/enhancd/init.sh
@@ -182,10 +175,14 @@ source ~/enhancd/init.sh
 source ~/emoji-cli/emoji-cli.plugin.zsh
 
 # Autocompletado a base de sugerencias
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
 
-source ~/.zsh/func/zsh-syntax-highlighting.zsh
+# Add RVM to PATH for scripting
+
+source ~/.oh-my-zsh/func/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+eval "$(rbenv init -)"
