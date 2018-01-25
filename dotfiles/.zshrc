@@ -20,7 +20,14 @@ zplug "b4b4r07/enhancd", use:init.sh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="ys"
+ZSH_THEME="spaceship"
+
+##configuration spaceship
+
+SPACESHIP_TIME_SHOW="true"
+SPACESHIP_BATTERY_SHOW="always"
+SPACESHIP_NODE_SHOW="false"
+SPACESHIP_TIME_COLOR="red"
 
 #Antiguo mensaje de bienvenida
 #$ZSH/func/welcome.sh -c
@@ -113,8 +120,8 @@ alias papelera="sudo rm -rfv /Volumes/\*/.Trashes; sudo rm -rfv \$HOME/.Trash/; 
 alias spapelera="sudo srm -rfv /Volumes/\*/.Trashes; sudo srm -rfv \$HOME/.Trash/; sudo srm -rfv /private/var/log/asl/\*.asl"
 
 #Alias gulp
-alias guw="gulp watch && subl"
-alias gu="gulp && subl"
+alias guw="gulp watch"
+alias gu="gulp"
 
 #Generando un password y copiandolo en el portapapeles
 alias gpass="LC_ALL=C tr -dc '[:alpha:][:alnum:]' < /dev/urandom | head -c 40 | pbcopy"
@@ -178,6 +185,9 @@ source ~/emoji-cli/emoji-cli.plugin.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export LC_CTYPE=es_ES.UTF-8
+export LC_ALL=es_ES.UTF-8
 
 # Add RVM to PATH for scripting
 
