@@ -134,7 +134,7 @@ alias abrirsublime="open -a "Sublime Text""
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 #Update masivo actualizaciones OSX, Brew, NPM y GEM.
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup"
+alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo -H pipdate"
 
 alias updateOSX="sudo softwareupdate -i -a"
 alias updateBrew="brew update; brew upgrade; brew cleanup;"
@@ -185,7 +185,6 @@ source ~/emoji-cli/emoji-cli.plugin.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 export PATH="$PATH:$HOME/.rvm/bin"
-
 export LC_CTYPE=es_ES.UTF-8
 export LC_ALL=es_ES.UTF-8
 
