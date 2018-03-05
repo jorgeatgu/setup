@@ -12,15 +12,17 @@ zplug "zsh-users/zsh-history-substring-search"
 # Set priority to load command like a nice command
 # e.g., zsh-syntax-highlighting must be loaded
 # after executing compinit command and sourcing other plugins
-zplug "zsh-users/zsh-syntax-highlighting", defer:10
+zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/enhancd", use:init.sh
+zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
+
 
 ##configuration spaceship
 
@@ -34,6 +36,7 @@ SPACESHIP_TIME_COLOR="red"
 
 autoload -U colors
 colors
+
 
 # Movida para mostrar la bateria en el PROMPT
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%'
@@ -134,7 +137,7 @@ alias abrirsublime="open -a "Sublime Text""
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 #Update masivo actualizaciones OSX, Brew, NPM y GEM.
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo -H pipdate"
+alias update="sudo softwareupdate -i -a; zplug update; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo -H pipdate"
 
 alias updateOSX="sudo softwareupdate -i -a"
 alias updateBrew="brew update; brew upgrade; brew cleanup;"
@@ -164,7 +167,7 @@ alias kwmStop="brew services stop kwm"
 alias kwmconfig="open -a 'Sublime Text' /usr/local/Cellar/kwm/4.0.2/kwmrc"
 
 # Obtener la previsión del tiempo
-alias tiempo="curl -H 'Accept-Language: es' wttr.in/Zaragoza"
+alias tiempo="curl -H 'Accept-Language: es' wttr.in/~Zaragoza"
 
 ##Elimina del historial los comandos duplicados
 export HISTCONTROL=ignoreboth:erasedups
