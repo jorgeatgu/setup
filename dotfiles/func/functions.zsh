@@ -1,21 +1,28 @@
 function buendia() {
 
-  if [[ $(date +%u) -gt 5 ]] ;
-    then
-    echo 'Es finde, tomatelo con calma'
-    osascript -e '
-    tell application "Spark" to activate
-    tell application "Opera" to activate
-    '
-else
-  osascript -e '
-  tell application "Mail" to activate
-  tell application "Opera" to activate
-  tell application "Slack" to activate
-  tell application "Sublime Text" to activate
-  '
-  open -a terminal-notifier --args -message "A trabajar!" -title "⚒" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
-fi
+ if [ $(date +%u) -le 5 ] && [ $(date +%H) -le 18 ]
+       then
+       echo 'A trabajar!'
+       osascript -e '
+       set apps to {"Opera", "Slack", "Mail", "Sublime Text", "Sketch", "Numi", "Skype", "log", "Bear", "Spotify"}
+       repeat with i from 1 to (count of items in apps)
+       tell application (item i of apps)
+       activate
+       end tell
+       end repeat
+       '
+       open -a terminal-notifier --args -message "A trabajar!" -title "⚒" -appIcon "/Users/jorgeatgu/Downloads/logo.png" -sound "Glass"
+   else
+     echo 'No estas en el trabajo :)'
+     osascript -e '
+     set apps to {"Opera", "Spark", "tweetbot"}
+     repeat with i from 1 to (count of items in apps)
+     tell application (item i of apps)
+     activate
+     end tell
+     end repeat
+     '
+   fi
 
 }
 
@@ -397,8 +404,8 @@ function printGitHuser() {
     git remote -v | grep -e push | awk '{print $2}' | sed 's/https:\/\/github.com\///g' | sed 's/.git//g'
 }
 
-//Comprimiendo archivos, hay que pasarle el nombre que queremos usar ejemplo prueba.zip y luego la carpeta que queremos comprimir
-//Excluimos los DS_Store
+# Comprimiendo archivos, hay que pasarle el nombre que queremos usar ejemplo prueba.zip y luego la carpeta que queremos comprimir
+# Excluimos los DS_Store
 function comprimir() {
     zip -vr "$@" "$_" -x '*.DS_Store'
 }
