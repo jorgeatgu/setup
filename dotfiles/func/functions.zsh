@@ -4,7 +4,7 @@ function buendia() {
        then
        echo 'A trabajar!'
        osascript -e '
-       set apps to {"Opera", "Slack", "Mail", "Sublime Text", "Sketch", "Numi", "Skype", "log", "Bear", "Spotify"}
+       set apps to {"Opera", "Skype", "Sublime Text", "Sketch", "Numi", "Slack","log", "Bear", "Spotify"}
        repeat with i from 1 to (count of items in apps)
        tell application (item i of apps)
        activate
