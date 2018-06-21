@@ -26,6 +26,83 @@ function buendia() {
 
 }
 
+function codeOrDesign() {
+    osascript -e '
+    tell application "System Events"
+        activate
+        set jobList to {"Codigo", "Diseño"}
+        choose from list jobList with prompt "¿Que quieres hacer? 🔨" default items "None" OK button name {"Go! 👨🏻‍💻"} cancel button name {"Procastinar 🎮"} without empty selection allowed
+        set listchoice to result as text
+
+        set synthWave to "spotify:user:megabeat:playlist:3Ay5tPYcSmt1dkfCk6mQLN"
+        set NilsOlafur to "spotify:user:megabeat:playlist:0Wodg3U7JIPzEGU8ZY5HsO"
+    end tell
+
+    if listchoice is equal to "Codigo" then
+
+        tell application "System Events" to set the visible of every process to true
+        set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera", "Quicktime Player"}
+        try
+            tell application "Finder"
+                set process_list to the name of every process whose visible is true
+            end tell
+            repeat with i from 1 to (number of items in process_list)
+                set this_process to item i of the process_list
+                if this_process is not in white_list then
+                    tell application this_process
+                        quit
+                    end tell
+                end if
+            end repeat
+        end try
+        tell application "iTerm" to activate
+        tell application "Opera" to activate
+        tell application "Spotify"
+            launch
+            delay 2
+            play track synthWave
+            repeat (random number from 1 to 15) times
+                next track
+            end repeat
+        end tell
+        delay 3
+        tell application "Spotify" to play
+        tell application "Sublime Text" to activate
+        display notification "A picar código!" with title "👨🏻‍💻 🎧"
+
+    else if listchoice is equal to "Diseño" then
+
+        tell application "System Events" to set the visible of every process to true
+        set white_list to {"Finder", "iTerm2", "Sketch", "Spotify"}
+        try
+            tell application "Finder"
+                set process_list to the name of every process whose visible is true
+            end tell
+            repeat with i from 1 to (number of items in process_list)
+                set this_process to item i of the process_list
+                if this_process is not in white_list then
+                    tell application this_process
+                        quit
+                    end tell
+                end if
+            end repeat
+        end try
+        tell application "Sketch" to activate
+        tell application "iTerm" to activate
+        tell application "Spotify"
+            launch
+            delay 2
+            play track NilsOlafur
+            repeat (random number from 1 to 15) times
+                next track
+            end repeat
+        end tell
+        delay 3
+        tell application "Spotify" to play
+        display notification "A diseñar!" with title "🎨 🎧"
+    end'
+}
+
 # Alias maquinas infernales con Güindows - IE9 to Edge
 function vie() {
   VBoxManage startvm "$@"
