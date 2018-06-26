@@ -41,7 +41,7 @@ function codeOrDesign() {
     if listchoice is equal to "Codigo" then
 
         tell application "System Events" to set the visible of every process to true
-        set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera", "Quicktime Player"}
+        set white_list to {"Finder", "iTerm2", "Sublime Text", "Spotify", "Opera","Skype","Bear"}
         try
             tell application "Finder"
                 set process_list to the name of every process whose visible is true
@@ -73,7 +73,7 @@ function codeOrDesign() {
     else if listchoice is equal to "Diseño" then
 
         tell application "System Events" to set the visible of every process to true
-        set white_list to {"Finder", "iTerm2", "Sketch", "Spotify"}
+        set white_list to {"Finder", "iTerm2", "Sketch", "Spotify", "Skype","Bear"}
         try
             tell application "Finder"
                 set process_list to the name of every process whose visible is true
