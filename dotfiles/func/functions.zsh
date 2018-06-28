@@ -58,15 +58,17 @@ function codeOrDesign() {
         tell application "iTerm" to activate
         tell application "Opera" to activate
         tell application "Spotify"
-            launch
-            delay 2
-            play track synthWave
-            repeat (random number from 1 to 15) times
-                next track
-            end repeat
+            if it is running then
+                display notification "Ya estabas escuchando música🎧!"
+            else
+                activate
+                delay 2
+                play track synthWave
+                repeat (random number from 1 to 50) times
+                    next track
+                end repeat
+            end if
         end tell
-        delay 3
-        tell application "Spotify" to play
         tell application "Sublime Text" to activate
         display notification "A picar código!" with title "👨🏻‍💻 🎧"
 
@@ -90,15 +92,17 @@ function codeOrDesign() {
         tell application "Sketch" to activate
         tell application "iTerm" to activate
         tell application "Spotify"
-            launch
-            delay 2
-            play track NilsOlafur
-            repeat (random number from 1 to 15) times
-                next track
-            end repeat
+            if it is running then
+                display notification "Ya estabas escuchando música🎧!"
+            else
+                activate
+                delay 2
+                play track NilsOlafur
+                repeat (random number from 1 to 50) times
+                    next track
+                end repeat
+            end if
         end tell
-        delay 3
-        tell application "Spotify" to play
         display notification "A diseñar!" with title "🎨 🎧"
     end'
 }
