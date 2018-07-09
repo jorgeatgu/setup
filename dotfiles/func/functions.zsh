@@ -125,10 +125,11 @@ function stproject() {
 # Iniciando la estructura desde un repositorio ya creado o con la carpeta ya creada
 function initConCarpeta() {
     mkdir css src js img &&
-    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.stylelintignore,package.json,gulpfile.js,index.html,_variables.css,styles.css}" &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{.stylelintrc,.gitignore,.stylelintignore,package.json,gulpfile.js,index.html}" &&
     cd src &&
     mkdir css img js &&
     cd css &&
+    curl -O "https://raw.githubusercontent.com/jorgeatgu/base/master/{_variables.css,styles.css}" &&
     curl -O https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css &&
     mv normalize.css _reset.css &&
     cd ../js &&
