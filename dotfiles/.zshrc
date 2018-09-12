@@ -16,7 +16,7 @@ zplug "zsh-users/zsh-history-substring-search"
 # e.g., zsh-syntax-highlighting must be loaded
 # after executing compinit command and sourcing other plugins
 zplug "djui/alias-tips"
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "b4b4r07/emoji-cli"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
@@ -36,6 +36,9 @@ SPACESHIP_NODE_SHOW="false"
 SPACESHIP_TIME_COLOR="red"
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_DIR_SHOW="true"
+SPACESHIP_NODE_SHOW="true"
+SPACESHIP_DIR_TRUNC_REPO="false"
+SPACESHIP_NODE_PREFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX "
 
 #Antiguo mensaje de bienvenida
 #$ZSH/func/welcome.sh -c
@@ -142,7 +145,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias update="sudo softwareupdate -i -a; zplug update"
 
 #Update masivo actualizaciones OSX, Brew, NPM y GEM.
-alias updateAll="sudo softwareupdate -i -a; zplug update; brew update; brew upgrade; brew cleanup; sudo npm install npm -g; sudonpm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo -H pipdate"
+alias updateAll="sudo softwareupdate -i -a; zplug update; brew update; brew upgrade; brew cleanup; sudo npm install npm -g; sudo npm update -g; sudo gem update --system; gem update; gem cleanup; sudo -H pipdate"
 
 
 alias updateOSX="sudo softwareupdate -i -a"
@@ -205,3 +208,8 @@ source ~/.oh-my-zsh/func/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+
+eval "$(rbenv init -)"
