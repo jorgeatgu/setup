@@ -1,34 +1,158 @@
+[{ "keys": ["super+shift+7"], "command": "toggle_comment", "args": { "block": true } },
+{
+    "keys": ["command+v"],
+    "command": "paste_and_indent"
+},
+{
+    "keys": ["ctrl+super+w"],
+    "command": "close_other_tabs"
+},
+{
+    "keys": ["ctrl+shift+w"],
+    "command": "can_i_use"
+},
+{
+    "keys": ["ctrl+super+c"],
+    "command": "show_panel",
+    "args":
+    {
+        "panel": "console",
+        "toggle": true
+    }
+},
+{
+    "keys": ["ctrl+shift+a"],
+    "command": "emmet_css_from_one_line"
+},
+{
+    "keys": ["super+alt+shift+w"],
+    "command": "close_to_right"
+},
+{
+    "keys": ["command+shift+v"],
+    "command": "paste"
+},
+{
+    "keys": ["ctrl+alt+f"],
+    "command": "fold"
+},
+{
+    "keys": ["ctrl+alt+u"],
+    "command": "unfold"
+},
+{
+    "keys": ["ctrl+super+x"],
+    "command": "find_all_under"
+},
+{
+    "keys": ["super+shift+a"],
+    "command": "open_in_browser"
+},
+{
+    "keys": ["super+0"],
+    "command": "reset_font_size_to_user_defaults"
+},
+{
+    "keys": ["super+u"],
+    "command": "soft_undo"
+},
+{
+    "keys": ["super+f12"],
+    "command": "reindent"
+},
+{
+    "keys": ["ctrl+alt+a"],
+    "command": "expand_selection",
+    "args":
+    {
+        "to": "tag"
+    }
+},
+{
+    "keys": ["super+shift+d"],
+    "command": "duplicate_line"
+},
+{
+    "keys": ["super+shift+o"],
+    "command": "prompt_add_folder"
+},
+{
+    "keys": ["alt+super+p"],
+    "command": "autoprefixer"
+},
+{
+    "keys": ["super+shift+e"],
+    "command": "open_dir",
+    "args":
+    {
+        "dir": "$file_path",
+        "file": "$file_name"
+    }
+},
+{
+    "keys": ["super+shift+u"],
+    "command": "js_format",
+    "context": [
+    {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "source.javascript"
+    }]
+},
+{
+    "keys": ["alt+up"],
+    "args":
+    {
+        "action": "increment_number_by_1"
+    },
+    "command": "run_emmet_action",
+    "context": [
+    {
+        "key": "emmet_action_enabled.increment_number_by_1"
+    },
+    {
+        "key": "following_text",
+        "operator": "regex_contains",
+        "operand": "^-?\\d",
+        "match_all": true
+    }]
+},
+{
+    "keys": ["alt+down"],
+    "args":
+    {
+        "action": "decrement_number_by_1"
+    },
+    "command": "run_emmet_action",
+    "context": [
+    {
+        "key": "emmet_action_enabled.decrement_number_by_1"
+    },
+    {
+        "key": "preceding_text",
+        "operator": "regex_contains",
+        "operand": "\\d$",
+        "match_all": true
+    }]
+},
+{ "keys": ["super+alt+p"],
+    "command": "run_existing_window_command", "args":
+{
+    "id": "repl_python",
+    "file": "config/Python/Main.sublime-menu"
+}},
+{ "keys": ["super+alt+y"], "command": "run_existing_window_command", "args":
+{
+    "id": "repl_python_run",
+    "file": "config/Python/Main.sublime-menu"
+}},
 [
-  { "keys": ["command+v"], "command": "paste_and_indent" },
-  {"keys": ["ctrl+super+w"], "command": "close_other_tabs"},
-  { "keys": ["ctrl+shift+w"], "command": "can_i_use"},
-  { "keys": ["ctrl+super+c"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
-  { "keys": ["ctrl+shift+a"], "command": "emmet_css_from_one_line" },
-  { "keys": ["super+alt+shift+w"], "command": "close_to_right" },
-  { "keys": ["command+shift+v"], "command": "paste" },
-  { "keys": ["ctrl+alt+f"], "command": "fold" },
-  { "keys": ["ctrl+alt+u"], "command": "unfold" },
-  { "keys": ["ctrl+super+x"], "command": "find_all_under" },
-  { "keys": ["super+shift+a"], "command": "open_in_browser" },
-  { "keys": ["super+0"], "command": "reset_font_size_to_user_defaults" },
-  { "keys": ["super+u"], "command": "soft_undo" },
-  { "keys": ["super+f12"], "command": "reindent"},
-  { "keys": ["ctrl+alt+a"], "command": "expand_selection", "args": {"to": "tag"} },
-  { "keys": ["super+shift+o"], "command": "prompt_add_folder" },
-  { "keys": ["alt+super+p"], "command": "autoprefixer" },
-  { "keys": ["super+shift+e"], "command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} },
-  { "keys": ["super+shift+u"], "command": "js_format", "context": [{"key": "selector", "operator": "equal", "operand": "source.javascript"}] },
-  {"keys": [ "alt+up" ], "args": { "action": "increment_number_by_1" }, "command": "run_emmet_action", "context":
-  [
-  { "key": "emmet_action_enabled.increment_number_by_1" },
-  { "key": "following_text", "operator": "regex_contains", "operand": "^-?\\d", "match_all": true }
-  ]
-  },
-  {
-  "keys": ["alt+down"], "args": {"action": "decrement_number_by_1"}, "command": "run_emmet_action", "context":
-  [
-  { "key": "emmet_action_enabled.decrement_number_by_1" },
-  { "key": "preceding_text", "operator": "regex_contains", "operand": "\\d$", "match_all": true }
-  ]
-  }
-]
+    {
+        "keys": ["ctrl+super+right"], "command": "goto_css_declaration",
+        "args": {"goto": "next"}
+    },
+    {
+        "keys": ["ctrl+super+left"],  "command": "goto_css_declaration",
+        "args": {"goto": "prev"}
+    }
+],{ "keys": ["super+alt+f"], "command": "js_prettier" }]

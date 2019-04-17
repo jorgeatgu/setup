@@ -1,4 +1,4 @@
-##Packages
+## Packages
 
 - [Alignment](https://github.com/wbond/sublime_alignment)
 - [AlignTab](https://github.com/randy3k/AlignTab)
@@ -28,6 +28,6 @@
 - [SVG Snippets](https://github.com/jorgeatgu/SVG-Snippets)
 - [Syntax Highlightinf for postCSS](https://github.com/hudochenkov/Syntax-highlighting-for-PostCSS)
 
-##Theme
+## Theme
 
 ![](https://github.com/jorgeatgu/setup/blob/master/sublime/packages-themes/sublime-theme-duotone.png)
