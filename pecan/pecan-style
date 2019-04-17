@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+#
+# author: daniel neemann (@zzzeyez)
+#
+# requires Übersicht
+# optional dependency: `imagemagick` (to save screenshots when saving theme)
+
+
+
+#########################################
+# change the variable below to point to #
+# wherever your Übersicht widgets are.  #
+#########################################
+uber="$HOME/Library/Application Support/Übersicht/widgets"
+
+
+
+name="$2"
+themes="$uber/Pecan/themes/$name"
+
+checkdir() {
+if [ ! -d "$uber/Pecan" ]; then
+	echo "directory $uber/Pecan not found"
+	echo "please edit line 14 to include location of Übersicht widgets"
+	echo "now exiting.."
+	exit
+fi
+}
+
+save(){
+	if [[ -z "$name" ]] ; then
+		echo "requires theme name.  try pecan -s name"
+		exit 1
+	else
+	mkdir "$themes"
+	cp "$uber/Pecan/style.css" "$themes/style.css" &&
+	cp "$uber/Pecan/scss/style.scss" "$themes/style.scss" &&
+	status="saved"
+	screencapture "$themes/$name.jpg"
+	if command -v convert >/dev/null 2>&1; then
+		convert "$themes/$name.jpg" -geometry 600 -quality 90 "$themes/$name.jpg"
+	fi
+	touch "$themes/README.md"
+	echo "![$name]($name.jpg)" > "$themes/README.md"
+	fi
+}
+
+load(){
+	if [[ -z "$name" ]] ; then
+		echo "requires theme name.  try pecan -l theme"
+		exit 1
+	else
+	cp "$themes/style.css" "$uber/Pecan/style.css" &&
+	cp "$themes/style.scss" "$uber/Pecan/scss/style.scss" &&
+	status="loaded"
+	fi
+}
+
+list(){
+	echo "available themes:"
+	ls "$themes"
+	echo "screenshots of themes are located in:"
+	echo "$uber/Pecan/themes/"
+}
+
+notify(){
+	if command -v notify-send >/dev/null 2>&1; then
+		notify-send "✔ Pecan style '$name' $status"
+	else
+		echo "Pecan style '$name' $status"
+	fi
+}
+
+refresh(){
+	osascript -e 'tell application "'$(ps ax | grep sicht | awk '{print $5}' | head -1 | cut -d/ -f3 | cut -d. -f1)'" to refresh'
+}
+
+help(){
+	echo "available flags:"
+	echo "list themes: -ls or --list"
+	echo "load theme: -l or --load (theme name)"
+	echo "save theme: -s or --save (theme name)"
+	echo "help: -h or --help"
+	echo "screenshots of themes are located in:"
+	echo "$uber/Pecan/themes/"
+}
+
+checkdir
+case $1 in
+	-l|--load) 
+		load
+		refresh
+		notify
+	;;
+	-s|--save)
+		save
+		notify
+	;;
+	-h|--help)
+		help
+	;;
+	-ls|--list)
+		list
+	;;
+	*)
+		help
+	;;
+esac
